@@ -1,20 +1,20 @@
 {
-  "name": "pizza",
-  "version": "0.2.2",
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-sass": "~0.6.1",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-uglify": "~0.2.5",
-    "grunt-contrib-compress": "~0.5.2",
-    "grunt-newer": "~0.6.0"
+  "name": "cs147-lab-1",
+  "description": "Serving static content via html files",
+  "version": "0.0.1",
+  "author": "CS147 Staff <cs147@cs.stanford.edu>",
+
+  "repository": {
+  	"type": "git",
+  	"url": "https://github.com/StanfordHCI/cs147"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/zurb/pizza/blob/master/MIT-LICENSE.txt"
-    }
-  ]
+  "license": "MIT",
+
+  "main": "server.js",
+  "dependencies": {
+    "express": "3.x"
+  },
+  "engines": {
+  	"node": "0.10.x"
+  }
 }

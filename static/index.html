@@ -11,12 +11,6 @@
 	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="css/introHCI.css"	rel="stylesheet"/>
 
-  <link href="dist/css/vendor/normalize.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="dist/css/vendor/foundation.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="dist/css/pizza.css" media="screen, projector, print" rel="stylesheet" type="text/css" />
-  <script src="dist/js/vendor/modernizr.js"></script>
-
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -44,7 +38,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu">
-	    	<li><a href="index.html">Home Page</a></li>
+	    	<li><a href="index.html">Home</a></li>
 	    	<li><a href="past_data.html">Past Data</a></li>
 	    	<li><a href="mood_diary.html">Mood Diary</a></li>
 		    <li><a href="calendar.html">Calendar</a></li>
@@ -61,39 +55,57 @@
 
 
 <body>
-
-  <div class="row">
-    <div class="large-12 columns">
-      <h3>Graphs</h3>
+<div class="container">
+      <div class="row">
+      <div class="span12">
+        <div class="row">
+          <div class="span6">
+            <div class="well">
+              <img src="images/pie_graph.png">
+            </div>            
+          </div>
+          <div class="span6">
+            <div class="well">
+              <h2>Suggestions</h2>
+              <p>
+                This is where your suggestions will go!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="large-4 small-4 columns">
-      <ul data-pie-id="pie">
-        <li data-value="30" data-text="Work {{percent}}">Work (30)</li>
-        <li data-value="35" data-text="Sleep {{percent}}">Sleep (35)</li>
-        <li data-value="35" data-text="Fun {{percent}}">Fun (35)</li>
-      </ul>
+</div>
+
+<div class="container">
+      <div class="row">
+      <div class="span12">
+        <div class="row">
+          <div class="span6">
+            <div class="well">
+              <h2>Schedule</h2>
+              <p>
+                Event 1: Business Meeting<br>
+                Time: 10:00am<br>
+                Details<br>
+              </p>
+              <p>
+                Event 2: Lunch with fam<br>
+                Time:1:00pm<br>
+                Details<br>
+              </p>
+              <p>
+                Event 3: Dentist appt.<br>
+                Time:5:00pm<br>
+                Details<br>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="large-8 small-8 columns">
-      <div id="pie"></div>
-    </div>
-  </div>
+</div>
 
-  <br><br><br>
-
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="javascripts/vendor/snap.svg.js"></script> 
-<script src="javascripts/pizza.js"></script> 
-
-  <script src="dist/js/vendor/dependencies.js"></script>
-  <script src="dist/js/pizza.js"></script>
-  <script>
-    $(window).load(function() {
-      Pizza.init();
-      $(document).foundation();
-    });
-  </script>
 
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery.js"></script>
