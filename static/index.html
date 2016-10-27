@@ -42,7 +42,7 @@
 	    	<li><a href="index.html">Home Page</a></li>
 	    	<li><a href="past_data.html">Past Data</a></li>
 	    	<li><a href="mood_diary.html">Mood Diary</a></li>
-		<li><a href="calendar.html">Calendar</a></li>
+		    <li><a href="calendar.html">Calendar</a></li>
 			<li><a href="suggestions.html">Suggestions</a></li>
 			<li><a href="friends.html">Friends</a></li>
 			<li><a href="help.html">Help</a></li>
@@ -56,6 +56,93 @@
 
 
 <body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Pie Series</h3>
+                </div>
+                <div class="panel-body">
+                    <div id="chart1"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Pie Customized Series</h3>
+                </div>
+                <div id="chart2" class="panel-body">
+                </div>
+            </div>
+        </div>
+    </div>   
+</div>
+
+<!-- you need to include the shieldui css and js assets in order for the grids to work -->
+<link rel="stylesheet" type="text/css" href="http://www.prepbootstrap.com/Content/shieldui-lite/dist/css/light/all.min.css" />
+<script type="text/javascript" src="http://www.prepbootstrap.com/Content/shieldui-lite/dist/js/shieldui-lite-all.min.js"></script>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        var data1 = [12, 3, 4, 2];
+        var data2 = [3, 9, 12, 14];       
+            
+        $(function () {            
+            $("#chart1").shieldChart({
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                axisY: {
+                    title: {
+                        text: "Break-Down for selected quarter"
+                    }
+                },               
+                dataSeries: [{
+                    seriesType: "pie",
+                    enablePointSelection: true,
+                    data: data1
+                }]
+            });
+
+            $("#chart2").shieldChart({
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                seriesSettings: {
+                    pie: {
+                        enablePointSelection: true,
+                        borderColor: 'black',
+                        borderWidth: 3,
+                        dataPointText:
+                            {
+                                style: {                                    
+                                    fontWeight: 'bold'
+                            }
+                        }
+                    }
+                },
+                axisY: {
+                    title: {
+                        text: "Break-Down for selected quarter"
+                    }
+                },               
+                dataSeries: [{
+                    seriesType: "pie",                    
+                    data: data2
+                }]
+            });
+
+       
+        });
+      
+    });
+</script>
+
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<!-- Include all compiled plugins -->
