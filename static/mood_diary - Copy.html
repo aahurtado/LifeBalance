@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>Life Balancer: Calendar</title>	
+	<title>Life Balancer: Mood Diary</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
@@ -57,12 +57,53 @@
 
 <body>
 
-<div class = "container">
-   <div class = "jumbotron">
-      <h1>Welcome to the Calendar page!</h1>
-      <p>Come checkout your calendar.</p>
-   </div>   
+<div class="well">
+	<h2>Mood Dairy:
+		<div class="pull-right">
+                <button type="button" class="btn btn-primary">New Mood Entry</button>
+                <button type="button" class="btn btn-success">Past Week</button>
+                <button type="button" class="btn btn-info">Old Entries</button>
+		</div>
+    </h2>
 </div>
+
+<table class = "table table-responsive">   
+   <thead>
+      <tr>
+         <th>Sunday</th>
+         <th>Monday</th>
+         <th>Tuesday</th>
+         <th>Wednesday</th>
+         <th>Thursday</th>
+         <th>Friday</th>
+         <th>Saturday</th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <tr>
+         <td>Today I Felt: Frustrated</td>
+         <td>Today I Felt: Happy</td>
+         <td>Today I Felt: Neutral</td>
+         <td>Today I Felt: Suprised</td>
+         <td>Today I Felt: Dissapointed</td>
+         <td>Today I Felt: Sad</td>
+         <td>Today I Felt: Happy</td>
+      </tr>
+      
+      <tr>     	
+         <td><img src="http://emojipedia-us.s3.amazonaws.com/cache/1b/55/1b556e7026fe5b658128514eb93d833e.png"></td>
+         <td><img src="http://emojipedia-us.s3.amazonaws.com/cache/0f/71/0f716ab7dd220b19cbfd5f5890ebe8cb.png"></td>
+         <td><img src="http://emojipedia-us.s3.amazonaws.com/cache/cc/ee/ccee6eef2faa53c12fde1bacaf76278c.png"></td>
+         <td><img src="http://emojipedia-us.s3.amazonaws.com/cache/3d/9c/3d9c1612317c5eab3c51a30a4ac40c62.png"></td>
+         <td><img src="http://emojipedia-us.s3.amazonaws.com/cache/f0/65/f065565eb5f02757858766531476d0dd.png"></td>
+         <td><img src="http://emojipedia-us.s3.amazonaws.com/cache/15/3b/153b3259cd8d4955375c067283967c54.png"></td>
+         <td><img src="http://emojipedia-us.s3.amazonaws.com/cache/0f/71/0f716ab7dd220b19cbfd5f5890ebe8cb.png"></td>
+      </tr>
+
+   </tbody>
+   
+</table>
 
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery.js"></script>
