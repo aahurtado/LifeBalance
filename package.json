@@ -1,12 +1,12 @@
 {
-  "name": "cs147-lab-1",
-  "description": "Serving static content via html files",
-  "version": "0.0.1",
-  "author": "CS147 Staff <cs147@cs.stanford.edu>",
+  "name": "Life Balance",
+  "description": "Life Balance",
+  "version": "0.3.1",
+  "author": "Aaron Hurtado <aaronhurtado95@gmail.com>",
 
   "repository": {
   	"type": "git",
-  	"url": "https://github.com/StanfordHCI/cs147"
+  	"url": "https://github.com/jphung11/LifeBalance"
   },
   "license": "MIT",
 
