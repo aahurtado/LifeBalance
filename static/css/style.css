@@ -1,3 +1,20 @@
 body {
 	background: #ffffff;
 }
+
+.ui.menu .icon.item>.icon.menu_icon {
+	margin-left: 1px;
+}
+
+  <style type="text/css">
+    #schedule_header {
+      padding-bottom: 15px;
+    }
+
+    .ui.cards>.card {
+      width: 100%;
+    }
+
+    .cards.schedule_cards {
+       margin-top: 20px;
+    }

@@ -1,18 +1,6 @@
-<!doctype html>
+{{> nav_signed_in}}
 
-<html>
-
-<head>
-  <title>Life Balancer</title>  
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css"/>     
-  <link rel="stylesheet" href="css/style.css"/>  
-</head>
-
-<body>
-
-  <style type="text/css">
+<style type="text/css">
     #schedule_header {
       padding-bottom: 15px;
     }
@@ -21,29 +9,7 @@
     }
   </style>
 
-  <div class="ui container">
-
-    <div class="ui top secondary pointing stackable menu">
-      <a href="index.html"><div class="ui active item">Life Balance</div></a>
-      <a href="past_data.html"><div class="item">Past Data</div></a>
-      <a href="mood_diary.html"><div class="item">Mood Diary</div></a>
-      <a href="calendar.html"><div class="item">Calendar</div></a>
-      <a href="suggestions.html"><div class="item">Suggestions</div></a>
-      <a href="friends.html"><div class="item">Friends</div></a>
-      <div class="ui right secondary menu">
-        <div class="ui dropdown icon item">
-          <i class="ellipsis vertical icon"></i>
-          <div class="menu">          
-            <a href="settings.html"><div class="item">settings</div></a>
-            <a href="help.html"><div class="item">help</div></a>
-            <a href="index.html"><div class="item">Log Out</div></a>
-          </div>
-        </div> 
-      </div>
-    </div>
-
-
-    <div class="ui segment">
+<div class="ui segment">
       <h2 class="ui dividing header" id="schedule_header">Mood Diary:
         <button class="ui primary right floated button add_event_button"><i class="icon add"></i>New Mood Entry</button>
       </h2>
@@ -139,16 +105,3 @@
       </div>
 
     </div>
-
-
-  </div>
-
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js"></script>
-  <script type="text/javascript">
-    $('.ui.dropdown').dropdown();
-  </script>
-
-
-</body>
-</html>
