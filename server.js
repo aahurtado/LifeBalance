@@ -35,6 +35,8 @@
 // 	console.log("Node.js server running on port %s", port);
 // });
 
+var PORT = 3000;
+
 var express = require('express');
 var exphbs  = require('express-handlebars');
 
@@ -95,4 +97,8 @@ app.all('*', function(req, res) {
   res.redirect('/');
 });
 
-app.listen(3000);
+var port = process.env.PORT || PORT; // 80 for web, 3000 for development
+app.listen(port, function() {
+  console.log("Node.js server running on port %s", port);
+});
+//app.listen(3000);
