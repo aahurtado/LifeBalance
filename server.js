@@ -71,6 +71,18 @@ app.get('/friends', function (req, res) {
     });
 });
 
+app.get('/settings', function (req, res) {
+    res.render('settings', {
+        title: 'Settings'
+    });
+});
+
+app.get('/help', function (req, res) {
+    res.render('help', {
+        title: 'Help'
+    });
+});
+
 app.all('*', function(req, res) {
   res.redirect('/');
 });
