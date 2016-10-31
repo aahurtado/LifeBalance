@@ -22,16 +22,9 @@ app.get('/index', function (req, res) {
     });
 });
 
-app.get('/home', function (req, res) {
-    res.render('home', {
-    	title: 'Home'
-    });
-});
-
-
 app.get('/sign_up', function (req, res) {
     res.render('sign_up', {
-    	title: 'Sign Up'
+        title: 'Sign Up'
     });
 });
 
@@ -42,16 +35,39 @@ app.get('/sign_in', function (req, res) {
     });
 });
 
-app.get('/calendar', function (req, res) {
-    res.render('calendar', {
-    	title: 'Calendar'
+app.get('/home', function (req, res) {
+    res.render('home', {
+    	title: 'Home'
     });
 });
 
+app.get('/past_data', function (req, res) {
+    res.render('past_data', {
+        title: 'Past Data'
+    });
+});
 
 app.get('/mood_diary', function (req, res) {
     res.render('mood_diary', {
     	title: 'Mood Diary'
+    });
+});
+
+app.get('/calendar', function (req, res) {
+    res.render('calendar', {
+        title: 'Calendar'
+    });
+});
+
+app.get('/suggestions', function (req, res) {
+    res.render('suggestions', {
+        title: 'Suggestions'
+    });
+});
+
+app.get('/friends', function (req, res) {
+    res.render('friends', {
+        title: 'Friends'
     });
 });
 
