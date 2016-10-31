@@ -6,6 +6,8 @@ var http = require('http');
 var path = require('path');
 var exphbs  = require('express-handlebars');
 
+var pastData = require('./routes/past_data');
+
 var app = express();
 
 // all environments
@@ -56,14 +58,9 @@ app.get('/home', function (req, res) {
     });
 });
 
-app.get('/past_data/:userName', function (req, res) {
-    var nameToShow = req.params.userName;
-    res.render('past_data', {
-        title: 'Past Data',
-        pastDataIsActive: true,
-        'name': nameToShow,
-    });
-});
+app.get('/past_data', pastData.view);
+
+app.get('/past_data/:userName', pastData.viewWithUser);
 
 app.get('/mood_diary', function (req, res) {
     res.render('mood_diary', {
