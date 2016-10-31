@@ -60,16 +60,17 @@
 
 	<div class="ui cards schedule_cards">
 
-		<div class="raised blue card">
+		{{#each	events}}
+		<div class="raised blue card" id="{{id}}">
 			<div class="content">
 				<div class="header">
-					Lunch With Family
+					{{name}}
 				</div>
 				<div class="meta">
-					12:30pm
+					{{time}}
 				</div>
 				<div class="description">
-					Armin's birthday lunch.
+					{{details}}
 				</div>
 			</div>
 			<div class="extra content">
@@ -79,47 +80,8 @@
 				</div>
 			</div>
 		</div>
+		{{/each}}
 
-		<div class="raised blue card">
-			<div class="content">
-				<div class="header">
-					Dinner Date
-				</div>
-				<div class="meta">
-					6:00pm
-				</div>
-				<div class="description">
-					Dinner with Emily
-				</div>
-			</div>
-			<div class="extra content">
-				<div class="ui two buttons">
-					<div class="ui basic green button edit_event_button">Edit</div>
-					<div class="ui basic red button delete_event_button">Delete</div>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="raised blue card">
-			<div class="content">
-				<div class="header">
-					Gym
-				</div>
-				<div class="meta">
-					11:00pm
-				</div>
-				<div class="description">
-					Leg day
-				</div>
-			</div>
-			<div class="extra content">
-				<div class="ui two buttons">
-					<div class="ui basic green button edit_event_button">Edit</div>
-					<div class="ui basic red button delete_event_button">Delete</div>
-				</div>
-			</div>
-		</div>
 
 	</div>
 

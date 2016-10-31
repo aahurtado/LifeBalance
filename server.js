@@ -6,6 +6,9 @@ var http = require('http');
 var path = require('path');
 var exphbs  = require('express-handlebars');
 
+// Router variables
+var home = require('./routes/home');
+var moodDiary = require('./routes/mood_diary');
 var pastData = require('./routes/past_data');
 
 var app = express();
@@ -23,12 +26,7 @@ app.use(express.static('static'));
 app.use(app.router);
 
 // Add routes here
-app.get('/', function (req, res) {
-    res.render('home', {
-    	title: 'Home',
-        homeIsActive: true
-    });
-});
+app.get('/', home.view);
 
 app.get('/index', function (req, res) {
     res.render('index', {
@@ -51,23 +49,13 @@ app.get('/sign_in', function (req, res) {
     });
 });
 
-app.get('/home', function (req, res) {
-    res.render('home', {
-    	title: 'Home',
-        homeIsActive: true
-    });
-});
+app.get('/home', home.view);
 
 app.get('/past_data', pastData.view);
 
 app.get('/past_data/:userName', pastData.viewWithUser);
 
-app.get('/mood_diary', function (req, res) {
-    res.render('mood_diary', {
-    	title: 'Mood Diary',
-        moodDiaryIsActive: true
-    });
-});
+app.get('/mood_diary', moodDiary.view);
 
 app.get('/calendar', function (req, res) {
     res.render('calendar', {

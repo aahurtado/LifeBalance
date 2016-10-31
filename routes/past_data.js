@@ -8,7 +8,10 @@
  		isName: false
  	});
  };
-
+ 
+/*
+ * GET home page.
+ */
  exports.viewWithUser = function(req, res){
  	var nameToShow = req.params.userName;
  	res.render('past_data', {
