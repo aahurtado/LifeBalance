@@ -24,7 +24,8 @@ app.get('/index', function (req, res) {
 
 app.get('/sign_up', function (req, res) {
     res.render('sign_up', {
-        title: 'Sign Up'
+        title: 'Sign Up',
+        layout: 'sign_in'
     });
 });
 
