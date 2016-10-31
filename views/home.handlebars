@@ -63,15 +63,9 @@
 		{{#each	events}}
 		<div class="raised blue card" id="{{id}}">
 			<div class="content">
-				<div class="header">
-					{{name}}
-				</div>
-				<div class="meta">
-					{{time}}
-				</div>
-				<div class="description">
-					{{details}}
-				</div>
+				<div class="header">{{name}}</div>
+				<div class="meta">{{time}}</div>
+				<div class="description">{{details}}</div>
 			</div>
 			<div class="extra content">
 				<div class="ui two buttons">
@@ -97,7 +91,7 @@
 				<i class="remove icon"></i>
 				No
 			</div>
-			<div class="ui basic positive icon button">
+			<div class="ui basic positive icon button" onclick="deleteEventCard()">
 				<i class="checkmark icon"></i>
 				Yes            
 			</div>
@@ -151,6 +145,10 @@
 					<label>Time:</label>
 					<input type="text" placeholder="Enter time">
 				</div>
+				<div class="field">
+					<label>Details:</label>
+					<input type="text" placeholder="Enter details">
+				</div>
 			</div>  
 		</div>
 
@@ -168,6 +166,7 @@
 
 </div>  
 
+<script src="/js/home.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
 <script type="text/javascript">
 	$( document ).ready(function() {
