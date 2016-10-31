@@ -1,14 +1,26 @@
+/**
+ * Module dependencies.
+ */
 var express = require('express');
+var http = require('http');
+var path = require('path');
 var exphbs  = require('express-handlebars');
 
 var app = express();
 
+// all environments
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
-app.use(express.logger());
+app.use(express.favicon());
+app.use(express.logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded());
+app.use(express.methodOverride());
 app.use(express.compress());
 app.use(express.static('static'));
+app.use(app.router);
 
+// Add routes here
 app.get('/', function (req, res) {
     res.render('home', {
     	title: 'Home',
@@ -44,10 +56,12 @@ app.get('/home', function (req, res) {
     });
 });
 
-app.get('/past_data', function (req, res) {
+app.get('/past_data/:userName', function (req, res) {
+    var nameToShow = req.params.userName;
     res.render('past_data', {
         title: 'Past Data',
-        pastDataIsActive: true
+        pastDataIsActive: true,
+        'name': nameToShow,
     });
 });
 
