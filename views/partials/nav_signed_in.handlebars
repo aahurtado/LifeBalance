@@ -1,10 +1,41 @@
-<div class="ui top secondary pointing stackable menu">
-  <a href="/home"><div class="ui active item">Life Balance</div></a>
-  <a href="/past_data"><div class="item">Past Data</div></a>
-  <a href="/mood_diary"><div class="item">Mood Diary</div></a>
-  <a href="/calendar"><div class="item">Calendar</div></a>
-  <a href="/suggestions"><div class="item">Suggestions</div></a>
-  <a href="/friends"><div class="item">Friends</div></a>
+<div class="ui top secondary pointing stackable menu">  
+
+  {{#if homeIsActive}}
+    <a href="/home"><div class="ui active item">Life Balance</div></a>
+  {{else}}
+    <a href="/home"><div class="ui item">Life Balance</div></a>
+  {{/if}}
+
+  {{#if pastDataIsActive}}
+    <a href="/past_data"><div class="active item">Past Data</div></a>
+  {{else}}
+    <a href="/past_data"><div class="item">Past Data</div></a>
+  {{/if}}
+  
+  {{#if moodDiaryIsActive}}
+    <a href="/mood_diary"><div class="ui active item">Mood Diary</div></a>
+  {{else}}
+    <a href="/mood_diary"><div class="item">Mood Diary</div></a>
+  {{/if}}
+  
+  {{#if calendarIsActive}}
+    <a href="/calendar"><div class="ui active item">Calendar</div></a>
+  {{else}}
+    <a href="/calendar"><div class="ui item">Calendar</div></a>
+  {{/if}}
+  
+  {{#if suggestionsIsActive}}
+    <a href="/suggestions"><div class="ui active item">Suggestions</div></a>
+  {{else}}
+    <a href="/suggestions"><div class="item">Suggestions</div></a>
+  {{/if}}
+  
+  {{#if friendsIsActive}}
+    <a href="/friends"><div class="ui active item">Friends</div></a>
+  {{else}}
+    <a href="/friends"><div class="item">Friends</div></a>
+  {{/if}}  
+  
   <div class="ui right secondary menu">
     <div class="ui dropdown icon item">
       <i class="ellipsis vertical icon menu_icon"></i>

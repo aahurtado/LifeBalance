@@ -37,37 +37,43 @@ app.get('/sign_in', function (req, res) {
 
 app.get('/home', function (req, res) {
     res.render('home', {
-    	title: 'Home'
+    	title: 'Home',
+        homeIsActive: true
     });
 });
 
 app.get('/past_data', function (req, res) {
     res.render('past_data', {
-        title: 'Past Data'
+        title: 'Past Data',
+        pastDataIsActive: true
     });
 });
 
 app.get('/mood_diary', function (req, res) {
     res.render('mood_diary', {
-    	title: 'Mood Diary'
+    	title: 'Mood Diary',
+        moodDiaryIsActive: true
     });
 });
 
 app.get('/calendar', function (req, res) {
     res.render('calendar', {
-        title: 'Calendar'
+        title: 'Calendar',
+        calendarIsActive: true
     });
 });
 
 app.get('/suggestions', function (req, res) {
     res.render('suggestions', {
-        title: 'Suggestions'
+        title: 'Suggestions',
+        suggestionsIsActive: true
     });
 });
 
 app.get('/friends', function (req, res) {
     res.render('friends', {
-        title: 'Friends'
+        title: 'Friends',
+        friendsIsActive: true
     });
 });
 
