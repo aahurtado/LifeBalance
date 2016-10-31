@@ -91,7 +91,7 @@
 				<i class="remove icon"></i>
 				No
 			</div>
-			<div class="ui basic positive icon button" onclick="deleteEventCard()">
+			<div class="ui basic positive icon button" id="delete_modal_yes">
 				<i class="checkmark icon"></i>
 				Yes            
 			</div>
@@ -105,16 +105,21 @@
 		</div>
 		<div class="content">
 
-			<div class="ui form">
+			<form class="ui form">
 				<div class="field">
 					<label>Name:</label>
-					<input type="text" placeholder="Enter new name">
+					<input type="text" name="name" placeholder="Enter new name">
 				</div>
 				<div class="field">
 					<label>Time:</label>
-					<input type="text" placeholder="Enter new time">
+					<input type="text" name="time" placeholder="Enter new time">
 				</div>
-			</div>  
+				<div class="field">
+					<label>Details:</label>
+					<input type="text" name="details" placeholder="Enter new details">
+				</div>
+			</form>  
+
 		</div>
 
 		<div class="actions">
@@ -131,40 +136,45 @@
 
 
 	<div class="ui small modal" id="add_modal">
+
 		<div class="header">
 			Adding Event
 		</div>
+
 		<div class="content">
 
 			<form class="ui form">
 				<div class="field">
-					<label>Name:</label>
+					<label>Name</label>
 					<input type="text" name="name" placeholder="Enter name">
 				</div>
+
 				<div class="field">
-					<label>Time:</label>
+					<label>Time</label>
 					<input type="text" name="time" placeholder="Enter time">
 				</div>
+
 				<div class="field">
-					<label>Details:</label>
+					<label>Details</label>
 					<input type="text" name="details" placeholder="Enter details">
 				</div>
-			</form>  
 
-		</div>
+				<div class="actions">	
+					<button class="ui basic positive icon right floated button">
+						<i class="add icon"></i>
+						Add
+					</button>	
+					<div class="ui basic negative icon right floated button">
+						<i class="remove icon"></i>
+						Cancel
+					</div>									
+				</div>
+			</form>
 
-		<div class="actions">	
-			<div class="ui basic negative button">
-				<i class="remove icon"></i>
-				Cancel
-			</div>				
-			<button class="ui basic positive icon button">
-				<i class="add icon"></i>
-				Add
-			</button>			
-		</div>
+		</div>		
 
 	</div>
+
 
 </div>  
 
