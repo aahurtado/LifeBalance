@@ -17,7 +17,8 @@ app.get('/', function (req, res) {
 
 app.get('/index', function (req, res) {
     res.render('index', {
-    	title: 'Index'
+        title: 'Landing Page',
+        layout: 'index'
     });
 });
 
@@ -36,7 +37,8 @@ app.get('/sign_up', function (req, res) {
 
 app.get('/sign_in', function (req, res) {
     res.render('sign_in', {
-    	title: 'Sign In'
+        title: 'Sign In',
+        layout: 'sign_in'
     });
 });
 

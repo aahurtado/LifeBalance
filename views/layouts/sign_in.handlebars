@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Life Balancer - {{title}}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css"/>     
+	<link rel="stylesheet" href="/css/style.css"/>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js"></script>
+	<script src="/js/script.js"></script> 
+
+	<style type="text/css">
+		body {
+			background-color: #FFFFFF;
+		}
+		body > .grid {
+			height: 100%;
+		}
+		.image {
+			margin-top: -100px;
+		}
+		.column {
+			max-width: 450px;
+		}
+	</style>
+	<script>
+		$(document)
+		.ready(function() {
+			$('.ui.form')
+			.form({
+				fields: {
+					email: {
+						identifier  : 'email',
+						rules: [
+						{
+							type   : 'empty',
+							prompt : 'Please enter your e-mail'
+						},
+						{
+							type   : 'email',
+							prompt : 'Please enter a valid e-mail'
+						}
+						]
+					},
+					password: {
+						identifier  : 'password',
+						rules: [
+						{
+							type   : 'empty',
+							prompt : 'Please enter your password'
+						},
+						{
+							type   : 'length[6]',
+							prompt : 'Your password must be at least 6 characters'
+						}
+						]
+					}
+				}
+			})
+			;
+		})
+		;
+	</script>
+	
+</head>
+
+<body>
+
+	{{{body}}}
+	
+</body>
+
+</html>
