@@ -7,9 +7,20 @@ var path = require('path');
 var exphbs  = require('express-handlebars');
 
 // Router variables
+var index = require('./routes/index');
+var sign_in = require('./routes/sign_in');
+var sign_up = require('./routes/sign_up');
 var home = require('./routes/home');
-var moodDiary = require('./routes/mood_diary');
 var pastData = require('./routes/past_data');
+var moodDiary = require('./routes/mood_diary');
+var calendar = require('./routes/calendar');
+var suggestions = require('./routes/suggestions');
+var friends = require('./routes/friends');
+var settings = require('./routes/settings');
+var help = require('./routes/help');
+
+// Action Routers
+var addEvent = require('./routes/addEvent');
 
 var app = express();
 
@@ -28,28 +39,17 @@ app.use(app.router);
 // Add routes here
 app.get('/', home.view);
 
-app.get('/index', function (req, res) {
-    res.render('index', {
-        title: 'Landing Page',
-        layout: 'index'
-    });
-});
+//app.get('/?*', addEvent.addNewEvent);
 
-app.get('/sign_up', function (req, res) {
-    res.render('sign_up', {
-        title: 'Sign Up',
-        layout: 'sign_in'
-    });
-});
+app.get('/index', index.view);
 
-app.get('/sign_in', function (req, res) {
-    res.render('sign_in', {
-        title: 'Sign In',
-        layout: 'sign_in'
-    });
-});
+app.get('/sign_in', sign_in.view);
 
-app.get('/home', home.view);
+app.get('/sign_up', sign_up.view);
+
+app.get('home', home.view);
+
+//app.get('/home?*', addEvent.addNewEvent);
 
 app.get('/past_data', pastData.view);
 
@@ -57,38 +57,15 @@ app.get('/past_data/:userName', pastData.viewWithUser);
 
 app.get('/mood_diary', moodDiary.view);
 
-app.get('/calendar', function (req, res) {
-    res.render('calendar', {
-        title: 'Calendar',
-        calendarIsActive: true
-    });
-});
+app.get('/calendar', calendar.view);
 
-app.get('/suggestions', function (req, res) {
-    res.render('suggestions', {
-        title: 'Suggestions',
-        suggestionsIsActive: true
-    });
-});
+app.get('/suggestions', suggestions.view);
 
-app.get('/friends', function (req, res) {
-    res.render('friends', {
-        title: 'Friends',
-        friendsIsActive: true
-    });
-});
+app.get('/friends', friends.view);
 
-app.get('/settings', function (req, res) {
-    res.render('settings', {
-        title: 'Settings'
-    });
-});
+app.get('/settings', settings.view);
 
-app.get('/help', function (req, res) {
-    res.render('help', {
-        title: 'Help'
-    });
-});
+app.get('/help', help.view);
 
 app.all('*', function(req, res) {
   res.redirect('/');
