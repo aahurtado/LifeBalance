@@ -4,7 +4,7 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var exphbs  = require('express-handlebars');
+var exphbs = require('express-handlebars');
 
 // Router variables
 var index = require('./routes/index');
@@ -20,12 +20,12 @@ var settings = require('./routes/settings');
 var help = require('./routes/help');
 
 // Action Routers
-var addEvent = require('./routes/addEvent');
+var event = require('./routes/event');
 
 var app = express();
 
 // all environments
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 app.use(express.favicon());
 app.use(express.logger('dev'));
@@ -39,17 +39,13 @@ app.use(app.router);
 // Add routes here
 app.get('/', home.view);
 
-//app.get('/?*', addEvent.addNewEvent);
-
 app.get('/index', index.view);
 
 app.get('/sign_in', sign_in.view);
 
 app.get('/sign_up', sign_up.view);
 
-app.get('home', home.view);
-
-//app.get('/home?*', addEvent.addNewEvent);
+app.get('/home', home.view);
 
 app.get('/past_data', pastData.view);
 
@@ -67,12 +63,16 @@ app.get('/settings', settings.view);
 
 app.get('/help', help.view);
 
-app.all('*', function(req, res) {
+app.get('/addEvent', event.addNewEvent);
+
+app.get('/deleteEvent', event.deleteEvent);
+
+/*app.all('*', function(req, res) {
   res.redirect('/');
-});
+});*/
 
 var PORT = 3000;
 var port = process.env.PORT || PORT; // 80 for web, 3000 for development
 app.listen(port, function() {
-  console.log("Node.js server running on port %s", port);
+    console.log("Node.js server running on port %s", port);
 });

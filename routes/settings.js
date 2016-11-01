@@ -1,8 +1,8 @@
 /*
  * GET home page.
  */
- exports.view = function(req, res){
- 	res.render('settings', {
+exports.view = function(req, res) {
+    res.render('settings', {
         title: 'Settings'
     });
- }; 
+};
