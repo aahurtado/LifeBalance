@@ -9,18 +9,30 @@ var ID = "event";
  */
 exports.addNewEvent = function(req, res) {
     var name = req.body.name;
-    var time = req.body.time;
+    var startTime = req.body.startTime;
+    var endTime = req.body.endTime;
+    var date = req.body.date;
     var details = req.body.details;
     var category = req.body.category;
+    var hasEndTime;
+
+    if (endTime != "") {
+        hasEndTime = true;
+    } else {
+        hasEndTime = false;
+    }
 
     var newID = ID + curIDNum;
     curIDNum++;
 
     var newEvent = {
         "name": name,
-        "time": time,
+        "startTime": startTime,
+        "endTime": endTime,
+        "date": date,
         "details": details,
         "category": category,
+        "hasEndTime": hasEndTime,
         "id": newID
     }
 
@@ -34,10 +46,19 @@ exports.addNewEvent = function(req, res) {
  */
 exports.editEvent = function(req, res) {
     var name = req.query.name;
-    var time = req.query.time;
+    var startTime = req.query.startTime;
+    var endTime = req.query.endTime;
+    var date = req.query.date;
     var details = req.query.details;
     var category = req.query.category;
     var id = req.query.id;
+    var hasEndTime;
+
+    if (endTime != "") {
+        hasEndTime = true;
+    } else {
+        hasEndTime = false;
+    }
 
     var idx;
     for (idx in data.events) {
@@ -49,9 +70,12 @@ exports.editEvent = function(req, res) {
     var event = data.events[idx];
 
     event.name = name;
-    event.time = time;
+    event.startTime = startTime;
+    event.endTime = endTime;
+    event.date = date;
     event.details = details;
     event.category = category;
+    event.hasEndTime = hasEndTime;
 
     res.render('home', data);
 };

@@ -1,29 +1,39 @@
 {
-    "title": "Home",
-    "homeIsActive": "true",
     "events": [{
         "name": "Lunch With Family",
-        "time": "12:30pm",
+        "startTime": "12:30pm",
+        "endTime": "",
+        "date": "15",
         "details": "Armins birthday lunch.",
         "category": "Fun",
+        "hasEndTime": false,
         "id": "event1"
     }, {
         "name": "Dinner Date",
-        "time": "6:00pm",
+        "startTime": "5pm",
+        "endTime": "",
+        "date": "15",
         "details": "Dinner with Emily",
         "category": "Fun",
+        "hasEndTime": false,
         "id": "event2"
     }, {
         "name": "Gym",
-        "time": "10:00pm-11:00pm",
+        "startTime": "10:00pm",
+        "endTime": "11:00pm",
+        "date": "15",
         "details": "Leg day",
         "category": "Work",
+        "hasEndTime": true,
         "id": "event3"
     }, {
         "name": "Sleep",
-        "time": "12:00pm",
+        "startTime": "12:30pm",
+        "endTime": "8:00am",
+        "date": "15",
         "details": "Go to bed",
         "category": "Sleep",
+        "hasEndTime": true,
         "id": "event4"
     }]
 }

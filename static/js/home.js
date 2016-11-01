@@ -18,14 +18,23 @@ $("#edit_modal_save").click(function(e) {
     allFields = editEventForm.form('get values')
 
     var name = allFields.name;
-    var time = allFields.time;
+    var startTime = allFields.startTime;
+    var endTime = allFields.endTime;
+    var date = allFields.date;
     var details = allFields.details;
     var category = allFields.category;
 
     $.getScript('/js/URI.js', function() {
-        var URL = "/editEvent?id=" + mostRecClickedEvent[0].id + "&name={newName}&time={newTime}&details={newDetails}&category={newcategory}";
+        var URL = "/editEvent?id=" + mostRecClickedEvent[0].id + "&name={newName}&startTime={newStartTime}&endTime={newEndTime}&date={newDate}&details={newDetails}&category={newcategory}";
         var template = new URITemplate(URL);
-        var result = template.expand({ newName: name, newTime: time, newDetails: details, newcategory: category });
+        var result = template.expand({
+            newName: name,
+            newStartTime: startTime,
+            newEndTime: endTime,
+            newDate: date,
+            newDetails: details,
+            newcategory: category
+        });
         window.location.href = result;
     });
 });
@@ -40,5 +49,64 @@ $("#delete_modal_yes").click(function(e) {
 });
 
 $(document).ready(function() {
+
+    $(".delete_event_button").click(function() {
+        open_delete_modal();
+    });
+
+    function open_delete_modal() {
+        $('#delete_modal').modal('show');
+    }
+
+    $(".edit_event_button").click(function() {
+        open_edit_modal();
+    });
+
+    function open_edit_modal() {
+        $('#edit_modal').modal('show');
+    }
+
+    $(".add_event_button").click(function() {
+        open_add_modal();
+    });
+
+    function open_add_modal() {
+        $('#add_modal').modal('show');
+    }
+
+    var ctx = document.getElementById("myChart");
+
+    var data = {
+        labels: [
+            "Work",
+            "Fun",
+            "Sleep"
+        ],
+        datasets: [{
+            data: [70, 15, 20],
+            backgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56"
+            ],
+            hoverBackgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56"
+            ]
+        }]
+    };
+
+    var options = {
+        animation: {
+            animateScale: true
+        }
+    }
+
+    var myPieChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: data,
+        options: options
+    });
 
 });
