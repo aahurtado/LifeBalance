@@ -15,7 +15,7 @@
         "id": "event2"
     }, {
         "name": "Gym",
-        "time": "11:00pm",
+        "time": "10:00pm-11:00pm",
         "details": "Leg day",
         "category": "Work",
         "id": "event3"
