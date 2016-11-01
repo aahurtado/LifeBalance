@@ -5,6 +5,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var exphbs = require('express-handlebars');
+var bodyParser = require('body-parser');
 
 // Router variables
 var index = require('./routes/index');
@@ -34,6 +35,8 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.compress());
 app.use(express.static('static'));
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(app.router);
 
 // Add routes here
@@ -63,7 +66,7 @@ app.get('/settings', settings.view);
 
 app.get('/help', help.view);
 
-app.get('/addEvent', event.addNewEvent);
+app.post('/addEvent', event.addNewEvent);
 
 app.get('/deleteEvent', event.deleteEvent);
 

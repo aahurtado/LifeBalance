@@ -90,7 +90,7 @@
     <div class="ui small modal" id="edit_modal">
         <div class="header">Editing Event</div>
         <div class="content">
-            <form class="ui form" id="edit_modal_form" method="get" action="/editEvent">
+            <form class="ui form" id="edit_modal_form" method="post" action="/editEvent">
                 <div class="field">
                     <label>Name:</label>
                     <input type="text" name="name" placeholder="Enter new name">
@@ -126,7 +126,7 @@
     <div class="ui small modal" id="add_modal">
         <div class="header">Adding Event</div>
         <div class="content">
-            <form class="ui form" id="add_modal_form" method="get" action="/addEvent">
+            <form class="ui form" id="add_modal_form" method="post" action="/addEvent">
                 <div class="field">
                     <label>Name:</label>
                     <input type="text" name="name" placeholder="Enter name">

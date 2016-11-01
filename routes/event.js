@@ -8,10 +8,10 @@ var ID = "event";
  * GET home page.
  */
 exports.addNewEvent = function(req, res) {
-    var name = req.query.name;
-    var time = req.query.time;
-    var details = req.query.details;
-    var category = req.query.category;
+    var name = req.body.name;
+    var time = req.body.time;
+    var details = req.body.details;
+    var category = req.body.category;
 
     var newID = ID + curIDNum;
     curIDNum++;
