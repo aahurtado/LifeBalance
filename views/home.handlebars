@@ -56,7 +56,10 @@
         <div class="raised blue card" id="{{id}}">
             <div class="content">
                 <div class="header">{{name}}</div>
-                <div class="meta">{{time}}</div>
+                <div class="meta">
+                    <span class="right floated time">{{category}}</span>
+                    <span class="time">{{time}}</span>
+                </div>
                 <div class="description">{{details}}</div>
             </div>
             <div class="extra content">
@@ -100,6 +103,15 @@
                     <label>Details:</label>
                     <input type="text" name="details" placeholder="Enter new details">
                 </div>
+                <div class="field">
+                    <label>Category:</label>
+                    <select class="ui fluid dropdown" name="category">
+                        <option value="">Choose a category</option>
+                        <option value="work">Work</option>
+                        <option value="fun">Fun</option>
+                        <option value="sleep">Sleep</option>
+                    </select>
+                </div>
             </form>
         </div>
         <div class="actions">
@@ -126,6 +138,15 @@
                 <div class="field">
                     <label>Details:</label>
                     <input type="text" name="details" placeholder="Enter details">
+                </div>
+                <div class="field">
+                    <label>Category:</label>
+                    <select class="ui fluid dropdown" name="category">
+                        <option value="">Choose a category</option>
+                        <option value="work">Work</option>
+                        <option value="fun">Fun</option>
+                        <option value="sleep">Sleep</option>
+                    </select>
                 </div>
             </form>
         </div>

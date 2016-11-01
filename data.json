@@ -5,21 +5,25 @@
         "name": "Lunch With Family",
         "time": "12:30pm",
         "details": "Armins birthday lunch.",
+        "category": "Fun",
         "id": "event1"
     }, {
         "name": "Dinner Date",
         "time": "6:00pm",
         "details": "Dinner with Emily",
+        "category": "Fun",
         "id": "event2"
     }, {
         "name": "Gym",
         "time": "11:00pm",
         "details": "Leg day",
+        "category": "Work",
         "id": "event3"
     }, {
         "name": "Sleep",
         "time": "12:00pm",
         "details": "Go to bed",
-        "id": "event3"
+        "category": "Sleep",
+        "id": "event4"
     }]
 }

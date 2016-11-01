@@ -20,11 +20,12 @@ $("#edit_modal_save").click(function(e) {
     var name = allFields.name;
     var time = allFields.time;
     var details = allFields.details;
+    var category = allFields.category;
 
     $.getScript('/js/URI.js', function() {
-        var URL = "/editEvent?id=" + mostRecClickedEvent[0].id + "&name={newName}&time={newTime}&details={newDetails}";
+        var URL = "/editEvent?id=" + mostRecClickedEvent[0].id + "&name={newName}&time={newTime}&details={newDetails}&category={newcategory}";
         var template = new URITemplate(URL);
-        var result = template.expand({ newName: name, newTime: time, newDetails: details });
+        var result = template.expand({ newName: name, newTime: time, newDetails: details, newcategory: category });
         window.location.href = result;
     });
 });
