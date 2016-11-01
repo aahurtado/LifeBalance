@@ -1,5 +1,9 @@
 var data = require('../data.json');
 
+// Used to construct the next event ID
+var curIDNum = 5;
+var ID = "event";
+
 /*
  * GET home page.
  */
@@ -7,11 +11,17 @@ exports.addNewEvent = function(req, res) {
     var name = req.query.name;
     var time = req.query.time;
     var details = req.query.details;
+    var category = req.query.category;
+
+    var newID = ID + curIDNum;
+    curIDNum++;
 
     var newEvent = {
         "name": name,
         "time": time,
-        "details": details
+        "details": details,
+        "category": category,
+        "id": newID
     }
 
     data.events.push(newEvent);
@@ -26,6 +36,7 @@ exports.editEvent = function(req, res) {
     var name = req.query.name;
     var time = req.query.time;
     var details = req.query.details;
+    var category = req.query.category;
     var id = req.query.id;
 
     var idx;
@@ -40,6 +51,7 @@ exports.editEvent = function(req, res) {
     event.name = name;
     event.time = time;
     event.details = details;
+    event.category = category;
 
     res.render('home', data);
 };
