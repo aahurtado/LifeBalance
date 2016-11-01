@@ -67,6 +67,8 @@ app.get('/addEvent', event.addNewEvent);
 
 app.get('/deleteEvent', event.deleteEvent);
 
+app.get('/editEvent', event.editEvent);
+
 /*app.all('*', function(req, res) {
   res.redirect('/');
 });*/

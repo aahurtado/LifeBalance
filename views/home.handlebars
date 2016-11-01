@@ -87,7 +87,7 @@
     <div class="ui small modal" id="edit_modal">
         <div class="header">Editing Event</div>
         <div class="content">
-            <form class="ui form" id="edit_modal_form">
+            <form class="ui form" id="edit_modal_form" method="get" action="/editEvent">
                 <div class="field">
                     <label>Name:</label>
                     <input type="text" name="name" placeholder="Enter new name">
@@ -103,10 +103,10 @@
             </form>
         </div>
         <div class="actions">
-            <div class="ui basic negative button">
+            <div class="ui basic negative icon button">
                 <i class="remove icon"></i> Cancel
             </div>
-            <div class="ui basic positive icon button">
+            <div class="ui basic positive icon button" id="edit_modal_save" form="edit_modal_form">
                 <i class="checkmark icon"></i> Save
             </div>
         </div>

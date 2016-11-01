@@ -12,29 +12,31 @@ $(".raised.blue.card").click(function(e) {
  * Defines click function for when the "Yes" button is clicked
  * in the delete modal
  */
-$("#delete_modal_yes").click(function(e) {
-    mostRecClickedEvent.fadeOut();
-    console.log(mostRecClickedEvent);
-    var URL = "/deleteEvent?id=" + mostRecClickedEvent[0].id;
-    console.log(URL);
-    window.location.href = URL;
+$("#edit_modal_save").click(function(e) {
+    var editEventForm = $("#edit_modal_form");
+
+    allFields = editEventForm.form('get values')
+
+    var name = allFields.name;
+    var time = allFields.time;
+    var details = allFields.details;
+
+    $.getScript('/js/URI.js', function() {
+        var URL = "/editEvent?id=" + mostRecClickedEvent[0].id + "&name={newName}&time={newTime}&details={newDetails}";
+        var template = new URITemplate(URL);
+        var result = template.expand({ newName: name, newTime: time, newDetails: details });
+        window.location.href = result;
+    });
 });
 
 /*
  * Defines click function for when the "Yes" button is clicked
  * in the delete modal
  */
-$("#add_modal_add").click(function(e) {
-    var addEventForm = $("#add_modal_form");
-
-    allFields = addEventForm.form('get values')
-
-    console.log("[DEBUG] An event was added!");
-
-    console.log(allFields);
+$("#delete_modal_yes").click(function(e) {
+    var URL = "/deleteEvent?id=" + mostRecClickedEvent[0].id;
+    window.location.href = URL;
 });
-
-
 
 $(document).ready(function() {
 

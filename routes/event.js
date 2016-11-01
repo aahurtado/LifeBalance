@@ -14,11 +14,32 @@ exports.addNewEvent = function(req, res) {
         "details": details
     }
 
-    //console.log("[DEBUG] addEvent ran");
-    //console.log("[DEBUG] newEvent is: ");
-    //console.log(newEvent);
-
     data.events.push(newEvent);
+
+    res.render('home', data);
+};
+
+/*
+ * GET home page.
+ */
+exports.editEvent = function(req, res) {
+    var name = req.query.name;
+    var time = req.query.time;
+    var details = req.query.details;
+    var id = req.query.id;
+
+    var idx;
+    for (idx in data.events) {
+        if (data.events[idx].id == id) {
+            break;
+        }
+    }
+
+    var event = data.events[idx];
+
+    event.name = name;
+    event.time = time;
+    event.details = details;
 
     res.render('home', data);
 };
