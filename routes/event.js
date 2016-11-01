@@ -62,14 +62,16 @@ exports.editEvent = function(req, res) {
 exports.deleteEvent = function(req, res) {
     var id = req.query.id;
 
-    var event;
-    for (event in data.events) {
-        if (data.events[event].id == id) {
+    var i;
+    for (i = 0; i < data.events.length; i++) {
+        if (data.events[i].id == id) {
             break;
         }
     }
 
-    data.events.splice(event, 1);
+    if (i < data.events.length) {
+        data.events.splice(i, 1);
+    }
 
     res.render('home', data);
 };
