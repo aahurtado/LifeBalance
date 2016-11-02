@@ -75,6 +75,13 @@ $(document).ready(function() {
 
         var startTime = arr[1].substring(idx);
 
+        var endTime = "";
+
+        if (startTime.length > 7) {
+            endTime = startTime.slice(startTime.indexOf("-") + 2);
+            endTime = convertTo24Hour(endTime);
+        }
+
         startTime = startTime.indexOf("-") == -1 ? startTime : startTime.slice(0, startTime.indexOf("-") - 1);
 
         startTime = convertTo24Hour(startTime);
@@ -82,6 +89,7 @@ $(document).ready(function() {
         editEventForm.form('set values', {
             "name": name,
             "startTime": startTime,
+            "endTime": endTime,
             "details": details,
             "category": category
         });
