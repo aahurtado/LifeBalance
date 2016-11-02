@@ -1,6 +1,63 @@
 // Represents the most recently clicked event card
 var mostRecClickedEvent;
 
+/*
+ * Defines click function for when an event card is clicked
+ */
+$('#add_modal_form, #edit_modal_form').form({
+    fields: {
+        name: {
+            identifier: 'name',
+            rules: [{
+                type: 'empty',
+                prompt: 'Please enter your name'
+            }]
+        },
+        startTime: {
+            identifier: 'startTime',
+            rules: [{
+                type: 'empty',
+                prompt: 'Please enter a start time'
+            }]
+        },
+        category: {
+            identifier: 'category',
+            rules: [{
+                type: 'empty',
+                prompt: 'Please choose a category'
+            }]
+        }
+    },
+    inline: true
+});
+
+
+/*
+ * Defines click function for when an event card is clicked
+ */
+$('#add_modal, #edit_modal').modal({
+    closable: true,
+    onApprove: function() {
+        return false;
+    }
+});
+
+
+/*
+ * Defines click function for when an event card is clicked
+ */
+$("#add_modal_cancel").click(function(e) {
+    $('#add_modal_form').form('clear');
+});
+
+
+/*
+ * Defines click function for when an event card is clicked
+ */
+$("#edit_modal_cancel").click(function(e) {
+    $('#edit_modal_form').form('clear');
+});
+
 
 /*
  * Defines click function for when an event card is clicked

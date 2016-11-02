@@ -83,13 +83,13 @@
                 <div class="field">
                     <input type="hidden" id="edit_modal_form_hiddenID" name="id" value="" />
                 </div>
-                <div class="field">
+                <div class="required field">
                     <label>Name:</label>
                     <input type="text" name="name" placeholder="Enter new name">
                 </div>
                 <div class="ui grid">
                     <div class="five wide column">
-                        <div class="field">
+                        <div class="required field">
                             <label>Start time:</label>
                             <input type="time" name="startTime" placeholder="Enter new start tim
 e">
@@ -112,7 +112,7 @@ e">
                     <label>Details:</label>
                     <input type="text" name="details" placeholder="Enter new details">
                 </div>
-                <div class="field">
+                <div class="required field">
                     <label>Category:</label>
                     <select class="ui fluid search selection dropdown" name="category">
                         <option value="">Choose a category</option>
@@ -124,7 +124,7 @@ e">
             </form>
         </div>
         <div class="actions">
-            <div class="ui basic negative icon button">
+            <div class="ui basic negative icon clear button" id="edit_modal_cancel">
                 <i class="remove icon"></i> Cancel
             </div>
             <button class="ui basic positive icon button" id="edit_modal_save" form="edit_modal_form">
@@ -136,13 +136,13 @@ e">
         <div class="header">Adding Event</div>
         <div class="content">
             <form class="ui form" id="add_modal_form" method="post" action="/addEvent">
-                <div class="field">
+                <div class="required field">
                     <label>Name:</label>
                     <input type="text" name="name" placeholder="Enter name">
                 </div>
                 <div class="ui grid">
                     <div class="five wide column">
-                        <div class="field">
+                        <div class="required field">
                             <label>Start time:</label>
                             <input type="time" name="startTime" placeholder="Enter start tim
 e">
@@ -165,7 +165,7 @@ e">
                     <label>Details:</label>
                     <input type="text" name="details" placeholder="Enter details">
                 </div>
-                <div class="field">
+                <div class="required field">
                     <label>Category:</label>
                     <select class="ui fluid search selection dropdown" name="category">
                         <option value="">Choose a category</option>
@@ -174,10 +174,11 @@ e">
                         <option value="Sleep">Sleep</option>
                     </select>
                 </div>
+                <div class="ui error message"></div>
             </form>
         </div>
         <div class="actions">
-            <div class="ui basic negative icon button">
+            <div class="ui basic negative icon clear button" id="add_modal_cancel">
                 <i class="remove icon"></i> Cancel
             </div>
             <button class="ui basic positive icon button" id="add_modal_add" form="add_modal_form">
