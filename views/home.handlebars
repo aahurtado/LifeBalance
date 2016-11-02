@@ -80,6 +80,9 @@
         <div class="content">
             <form class="ui form" id="edit_modal_form" method="post" action="/editEvent">
                 <div class="field">
+                    <input type="hidden" id="edit_modal_form_hiddenID" name="id" value="" />
+                </div>
+                <div class="field">
                     <label>Name:</label>
                     <input type="text" name="name" placeholder="Enter new name">
                 </div>
@@ -150,18 +153,15 @@ e">
                         <option value="Sleep">Sleep</option>
                     </select>
                 </div>
-                <!-- <div class="field">
-                    <input type="hidden" name="id" value="">
-                </div> -->
             </form>
         </div>
         <div class="actions">
             <div class="ui basic negative icon button">
                 <i class="remove icon"></i> Cancel
             </div>
-            <div class="ui basic positive icon button" id="edit_modal_save" form="edit_modal_form">
+            <button class="ui basic positive icon button" id="edit_modal_save" form="edit_modal_form">
                 <i class="checkmark icon"></i> Save
-            </div>
+            </button>
         </div>
     </div>
     <div class="ui small modal" id="add_modal">

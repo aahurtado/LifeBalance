@@ -68,9 +68,9 @@ app.get('/help', help.view);
 
 app.post('/addEvent', event.addNewEvent);
 
-app.get('/deleteEvent', event.deleteEvent);
+app.post('/editEvent', event.editEvent);
 
-app.get('/editEvent', event.editEvent);
+app.get('/deleteEvent', event.deleteEvent);
 
 /*app.all('*', function(req, res) {
   res.redirect('/');

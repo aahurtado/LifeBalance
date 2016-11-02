@@ -1,6 +1,7 @@
 // Represents the most recently clicked event card
 var mostRecClickedEvent;
 
+
 /*
  * Defines click function for when an event card is clicked
  */
@@ -8,36 +9,15 @@ $(".raised.blue.card").click(function(e) {
     mostRecClickedEvent = $(this);
 });
 
+
 /*
  * Defines click function for when the "Yes" button is clicked
  * in the delete modal
  */
 $("#edit_modal_save").click(function(e) {
-    var editEventForm = $("#edit_modal_form");
-
-    allFields = editEventForm.form('get values')
-
-    var name = allFields.name;
-    var startTime = allFields.startTime;
-    var endTime = allFields.endTime;
-    var date = allFields.date;
-    var details = allFields.details;
-    var category = allFields.category;
-
-    $.getScript('/js/URI.js', function() {
-        var URL = "/editEvent?id=" + mostRecClickedEvent[0].id + "&name={newName}&startTime={newStartTime}&endTime={newEndTime}&date={newDate}&details={newDetails}&category={newcategory}";
-        var template = new URITemplate(URL);
-        var result = template.expand({
-            newName: name,
-            newStartTime: startTime,
-            newEndTime: endTime,
-            newDate: date,
-            newDetails: details,
-            newcategory: category
-        });
-        window.location.href = result;
-    });
+    document.getElementById('edit_modal_form_hiddenID').value = mostRecClickedEvent[0].id;
 });
+
 
 /*
  * Defines click function for when the "Yes" button is clicked
@@ -47,6 +27,7 @@ $("#delete_modal_yes").click(function(e) {
     var URL = "/deleteEvent?id=" + mostRecClickedEvent[0].id;
     window.location.href = URL;
 });
+
 
 $(document).ready(function() {
 
