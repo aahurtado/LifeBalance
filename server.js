@@ -40,7 +40,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(app.router);
 
 // Add routes here
-app.get('/', home.view);
+app.get('/', index.view);
 
 app.get('/index', index.view);
 
@@ -76,9 +76,9 @@ app.get('/deleteEvent', event.deleteEvent);
 
 app.post('/editMoodEntry', event.editMoodEntry);
 
-/*app.all('*', function(req, res) {
-  res.redirect('/');
-});*/
+app.all('*', function(req, res) {
+    res.redirect('/404.html');
+});
 
 var PORT = 3000;
 var port = process.env.PORT || PORT; // 80 for web, 3000 for development
