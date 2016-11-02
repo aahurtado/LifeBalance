@@ -5,8 +5,7 @@
     module.controller = function() {
         module.vm.init();
         this.calendar = new Calendar({
-            mindate: new Date(new Date().getTime() + 10 * 24 * 60 * 60 * 1000),
-            maxdate: new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000 + 10000000)
+
         });
     };
 
