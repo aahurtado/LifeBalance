@@ -5,8 +5,7 @@
         Log-in to your account:
       </div>
     </h2>
-        <!-- <div id="firebaseui-auth-container"></div> -->
-        <form class="ui large form">
+        <form class="ui large form" id="sign_in_form" method="post" action="/home">
             <div class="ui stacked segment">
                 <div class="field">
                     <div class="ui left icon input">
@@ -20,9 +19,7 @@
                         <input type="password" name="password" placeholder="Password">
                     </div>
                 </div>
-                <a href="/home">
-                    <div class="ui fluid large blue submit button">Login</div>
-                </a>
+                <div class="ui fluid large blue submit button">Login</div>
             </div>
             <div class="ui error message"></div>
         </form>
@@ -32,4 +29,3 @@
     </div>
 </div>
 <script src="/js/sign_in.js"></script>
-

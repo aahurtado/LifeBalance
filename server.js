@@ -50,6 +50,8 @@ app.get('/sign_up', sign_up.view);
 
 app.get('/home', home.view);
 
+app.post('/home', home.view);
+
 app.get('/past_data', pastData.view);
 
 app.get('/past_data/:userName', pastData.viewWithUser);
