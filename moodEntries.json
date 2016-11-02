@@ -6,13 +6,13 @@
         "id": "day1"
     }, {
         "name": "Monday",
-        "img": "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg",
-        "mood": "Happy",
+        "img": "http://emojione.com/wp-content/uploads/assets/emojis/1f62d.svg",
+        "mood": "Sad",
         "id": "day2"
     }, {
         "name": "Tuesday",
-        "img": "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg",
-        "mood": "Happy",
+        "img": "http://emojione.com/wp-content/uploads/assets/emojis/1f634.svg",
+        "mood": "Tired",
         "id": "day3"
     }, {
         "name": "Wednesday",
@@ -21,13 +21,13 @@
         "id": "day4"
     }, {
         "name": "Thursday",
-        "img": "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg",
-        "mood": "Happy",
+        "img": "http://emojione.com/wp-content/uploads/assets/emojis/1f634.svg",
+        "mood": "Tired",
         "id": "day5"
     }, {
         "name": "Friday",
-        "img": "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg",
-        "mood": "Happy",
+        "img": "http://emojione.com/wp-content/uploads/assets/emojis/1f62d.svg",
+        "mood": "Sad",
         "id": "day6"
     }, {
         "name": "Saturday",

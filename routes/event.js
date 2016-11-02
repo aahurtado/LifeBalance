@@ -1,5 +1,8 @@
 var data = require('../data.json');
 var moods = require('../moodEntries.json');
+var happyPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg";
+var sadPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f62d.svg";
+var tiredPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f634.svg";
 
 // Used to construct the next event ID
 var curIDNum = data.events.length + 1;
@@ -115,10 +118,16 @@ exports.editMoodEntry = function(req, res) {
         }
     }
 
-    var mood;
-    if (i < moods.days.length) {
-        mood = moods.days[i];
-        mood.mood = newMood;
+
+    var mood = moods.days[i];
+    mood.mood = newMood;
+
+    if (newMood == "Happy") {
+        mood.img = happyPic;
+    } else if (newMood == "Sad") {
+        mood.img = sadPic;
+    } else {
+        mood.img = tiredPic;
     }
 
     res.render('mood_diary', {
