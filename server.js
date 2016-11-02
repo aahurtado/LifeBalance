@@ -72,6 +72,8 @@ app.post('/editEvent', event.editEvent);
 
 app.get('/deleteEvent', event.deleteEvent);
 
+app.post('/editMoodEntry', event.editMoodEntry);
+
 /*app.all('*', function(req, res) {
   res.redirect('/');
 });*/

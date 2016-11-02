@@ -1,0 +1,38 @@
+{
+    "days": [{
+        "name": "Sunday",
+        "img": "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg",
+        "mood": "Happy",
+        "id": "day1"
+    }, {
+        "name": "Monday",
+        "img": "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg",
+        "mood": "Happy",
+        "id": "day2"
+    }, {
+        "name": "Tuesday",
+        "img": "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg",
+        "mood": "Happy",
+        "id": "day3"
+    }, {
+        "name": "Wednesday",
+        "img": "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg",
+        "mood": "Happy",
+        "id": "day4"
+    }, {
+        "name": "Thursday",
+        "img": "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg",
+        "mood": "Happy",
+        "id": "day5"
+    }, {
+        "name": "Friday",
+        "img": "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg",
+        "mood": "Happy",
+        "id": "day6"
+    }, {
+        "name": "Saturday",
+        "img": "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg",
+        "mood": "Happy",
+        "id": "day7"
+    }]
+}

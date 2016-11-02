@@ -10,18 +10,46 @@
     <div class="ui divider"></div>
     <div class="ui stackable seven column grid week_grid">
         {{#each days}}
-        <div class="column" id="{{id}}">
+        <div class="column mood_entry" id="{{id}}">
             <h3 class="ui dividing header">{{name}}</h3>
             <div class="ui fluid card">
                 <div class="image">
                     <img src="{{img}}">
                 </div>
                 <div class="content">
-                    <h3>{{mood}}<button class="ui icon circular mini basic button"><i class="write icon"></i></button></h3>
+                    <h3>{{mood}}</h3>
+                    <button class="ui icon circular mini basic button edit_mood_entry_button"><i class="write icon"></i></button>
                 </div>
             </div>
         </div>
         {{/each}}
+    </div>
+</div>
+<div class="ui small modal" id="edit_modal">
+    <div class="header">Editing Mood Entry</div>
+    <div class="content">
+        <form class="ui form" id="edit_modal_form" method="post" action="/editMoodEntry">
+            <div class="field">
+                <input type="hidden" id="edit_modal_form_hiddenID" name="id" value="" />
+            </div>
+            <div class="field">
+                <label>Mood:</label>
+                <select class="ui fluid search selection dropdown" name="mood">
+                    <option value="">Choose a mood</option>
+                    <option value="Happy">Happy</option>
+                    <option value="Sad">Sad</option>
+                    <option value="Tired">Tired</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <div class="actions">
+        <div class="ui basic negative icon button">
+            <i class="remove icon"></i> Cancel
+        </div>
+        <button class="ui basic positive icon button" id="edit_modal_save" form="edit_modal_form">
+            <i class="checkmark icon"></i> Save
+        </button>
     </div>
 </div>
 <script src="/js/mood_diary.js"></script>

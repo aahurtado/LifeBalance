@@ -1,4 +1,5 @@
 var data = require('../data.json');
+var moods = require('../moodEntries.json');
 
 // Used to construct the next event ID
 var curIDNum = data.events.length + 1;
@@ -98,4 +99,31 @@ exports.deleteEvent = function(req, res) {
     }
 
     res.render('home', data);
+};
+
+/*
+ * GET home page.
+ */
+exports.editMoodEntry = function(req, res) {
+    var id = req.body.id;
+    var newMood = req.body.mood;
+
+    var i;
+    for (i = 0; i < moods.days.length; i++) {
+        if (moods.days[i].id == id) {
+            break;
+        }
+    }
+
+    var mood;
+    if (i < moods.days.length) {
+        mood = moods.days[i];
+        mood.mood = newMood;
+    }
+
+    res.render('mood_diary', {
+        title: 'Mood Diary',
+        moodDiaryIsActive: true,
+        days: moods.days
+    });
 };
