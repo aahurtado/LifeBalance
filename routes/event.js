@@ -8,6 +8,13 @@ var tiredPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f634.svg";
 var curIDNum = data.events.length + 1;
 var ID = "event";
 
+// sort on key values
+function keysrt(key, desc) {
+    return function(a, b) {
+        return desc ? ~~(a[key] < b[key]) : ~~(a[key] > b[key]);
+    }
+}
+
 /*
  * GET home page.
  */
@@ -41,6 +48,10 @@ exports.addNewEvent = function(req, res) {
     }
 
     data.events.push(newEvent);
+
+    data.events.sort(keysrt('startTime', false));
+
+    console.log(data.events);
 
     res.render('home', data);
 };
@@ -81,6 +92,8 @@ exports.editEvent = function(req, res) {
     event.category = category;
     event.hasEndTime = hasEndTime;
 
+    data.events.sort(keysrt('startTime', false));
+
     res.render('home', data);
 };
 
@@ -100,6 +113,8 @@ exports.deleteEvent = function(req, res) {
     if (i < data.events.length) {
         data.events.splice(i, 1);
     }
+
+    data.events.sort(keysrt('startTime', false));
 
     res.render('home', data);
 };

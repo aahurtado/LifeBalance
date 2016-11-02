@@ -1,7 +1,7 @@
 {
     "events": [{
         "name": "Lunch With Family",
-        "startTime": "12:30pm",
+        "startTime": "12:30",
         "endTime": "",
         "date": "15",
         "details": "Armins birthday lunch.",
@@ -9,8 +9,17 @@
         "hasEndTime": false,
         "id": "event1"
     }, {
+        "name": "Gym",
+        "startTime": "21:00",
+        "endTime": "22:00",
+        "date": "15",
+        "details": "Leg day",
+        "category": "Work",
+        "hasEndTime": true,
+        "id": "event3"
+    }, {
         "name": "Dinner Date",
-        "startTime": "5pm",
+        "startTime": "19:00",
         "endTime": "",
         "date": "15",
         "details": "Dinner with Emily",
@@ -18,18 +27,9 @@
         "hasEndTime": false,
         "id": "event2"
     }, {
-        "name": "Gym",
-        "startTime": "10:00pm",
-        "endTime": "11:00pm",
-        "date": "15",
-        "details": "Leg day",
-        "category": "Work",
-        "hasEndTime": true,
-        "id": "event3"
-    }, {
         "name": "Sleep",
-        "startTime": "12:30pm",
-        "endTime": "8:00am",
+        "startTime": "23:00",
+        "endTime": "08:00",
         "date": "15",
         "details": "Go to bed",
         "category": "Sleep",
