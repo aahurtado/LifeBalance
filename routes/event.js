@@ -4,9 +4,11 @@ var happyPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg";
 var sadPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f62d.svg";
 var tiredPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f634.svg";
 
+
 // Used to construct the next event ID
 var curIDNum = data.events.length + 1;
 var ID = "event";
+
 
 // sort on key values
 function keysrt(key, desc) {
@@ -15,6 +17,21 @@ function keysrt(key, desc) {
     }
 }
 
+
+// sort on key values
+function tConvert(time) {
+    // Check correct time format and split into components
+    time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+    if (time.length > 1) { // If time format correct
+        time = time.slice(1); // Remove full string match value
+        time[5] = +time[0] < 12 ? 'am' : 'pm'; // Set AM/PM
+        time[0] = +time[0] % 12 || 12; // Adjust hours
+    }
+    return time.join(''); // return adjusted time or original string
+}
+
+
 /*
  * GET home page.
  */
@@ -22,6 +39,8 @@ exports.addNewEvent = function(req, res) {
     var name = req.body.name;
     var startTime = req.body.startTime;
     var endTime = req.body.endTime;
+    var startTime12hr = tConvert(startTime);
+    var endTime12hr = tConvert(endTime);
     var date = req.body.date;
     var details = req.body.details;
     var category = req.body.category;
@@ -40,6 +59,8 @@ exports.addNewEvent = function(req, res) {
         "name": name,
         "startTime": startTime,
         "endTime": endTime,
+        "startTime12hr": startTime12hr,
+        "endTime12hr": endTime12hr,
         "date": date,
         "details": details,
         "category": category,
@@ -56,6 +77,7 @@ exports.addNewEvent = function(req, res) {
     res.render('home', data);
 };
 
+
 /*
  * GET home page.
  */
@@ -63,6 +85,8 @@ exports.editEvent = function(req, res) {
     var name = req.body.name;
     var startTime = req.body.startTime;
     var endTime = req.body.endTime;
+    var startTime12hr = tConvert(startTime);
+    var endTime12hr = tConvert(endTime);
     var date = req.body.date;
     var details = req.body.details;
     var category = req.body.category;
@@ -87,6 +111,8 @@ exports.editEvent = function(req, res) {
     event.name = name;
     event.startTime = startTime;
     event.endTime = endTime;
+    event.startTime12hr = startTime12hr;
+    event.endTime12hr = endTime12hr;
     event.date = date;
     event.details = details;
     event.category = category;
@@ -96,6 +122,7 @@ exports.editEvent = function(req, res) {
 
     res.render('home', data);
 };
+
 
 /*
  * GET home page.
@@ -119,6 +146,7 @@ exports.deleteEvent = function(req, res) {
     res.render('home', data);
 };
 
+
 /*
  * GET home page.
  */
@@ -132,7 +160,6 @@ exports.editMoodEntry = function(req, res) {
             break;
         }
     }
-
 
     var mood = moods.days[i];
     mood.mood = newMood;
