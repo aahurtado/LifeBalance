@@ -1,0 +1,6 @@
+Todo:
+- Implement calendar page loading events from JSON
+- Implement calendar page adding and editing events
+- Implement doughnut chart loading data dynamically from user data
+- Prettify website with CSS
+- Add a database
