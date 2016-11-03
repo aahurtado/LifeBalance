@@ -62,6 +62,7 @@ $(document).ready(function() {
      */
     $('#add_modal, #edit_modal').modal({
         closable: true,
+        blurring: true,
         onApprove: function() {
             return false;
         }

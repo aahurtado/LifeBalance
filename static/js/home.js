@@ -37,9 +37,18 @@ $('#add_modal_form, #edit_modal_form').form({
  */
 $('#add_modal, #edit_modal').modal({
     closable: true,
+    blurring: true,
     onApprove: function() {
         return false;
     }
+});
+
+
+/*
+ * Defines click function for when an event card is clicked
+ */
+$('#delete_modal').modal({
+    blurring: true
 });
 
 
