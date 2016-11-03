@@ -58,7 +58,9 @@ app.get('/past_data/:userName', pastData.viewWithUser);
 
 app.get('/mood_diary', moodDiary.view);
 
-app.get('/calendar', calendar.view);
+app.get('/calendar', calendar.view2);
+
+app.get('/calendar2', calendar.view2);
 
 app.get('/suggestions', suggestions.view);
 
