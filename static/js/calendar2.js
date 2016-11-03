@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+    $("#edit_modal_cancel").click(function() {
+        $('#add_modal').modal('hide');
+    });
+
     /*
      * Defines click function for when an event card is clicked
      */
@@ -10,6 +14,10 @@ $(document).ready(function() {
     function open_edit_modal() {
         $('#edit_modal').modal('show');
     }
+
+    $("td").click(function() {
+        open_add_modal();
+    });
 
     $(".add_event_button").click(function() {
         open_add_modal();
