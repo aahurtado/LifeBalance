@@ -1,0 +1,47 @@
+{
+    "events": [{
+        "name": "Lunch With Family",
+        "startTime": "12:30",
+        "endTime": "",
+        "startTime12hr": "12:30pm",
+        "endTime12hr": "",
+        "date": "2016-11-08",
+        "details": "Armins birthday lunch.",
+        "category": "Fun",
+        "hasEndTime": false,
+        "id": "event1"
+    }, {
+        "name": "Gym",
+        "startTime": "21:00",
+        "endTime": "22:00",
+        "startTime12hr": "9:00pm",
+        "endTime12hr": "10:00pm",
+        "date": "2016-11-10",
+        "details": "Leg day",
+        "category": "Work",
+        "hasEndTime": true,
+        "id": "event3"
+    }, {
+        "name": "Dinner Date",
+        "startTime": "19:00",
+        "endTime": "",
+        "startTime12hr": "7:00pm",
+        "endTime12hr": "",
+        "date": "2016-11-15",
+        "details": "Dinner with Emily",
+        "category": "Fun",
+        "hasEndTime": false,
+        "id": "event2"
+    }, {
+        "name": "Sleep",
+        "startTime": "23:00",
+        "endTime": "08:00",
+        "startTime12hr": "11:00pm",
+        "endTime12hr": "8:00am",
+        "date": "2016-11-23",
+        "details": "Go to bed",
+        "category": "Sleep",
+        "hasEndTime": true,
+        "id": "event4"
+    }]
+}
