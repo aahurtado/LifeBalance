@@ -38,7 +38,7 @@ $('#add_modal_form, #edit_modal_form').form({
 $('#add_modal, #edit_modal').modal({
     closable: true,
     blurring: true,
-    onApprove: function() {
+    onApprove: function () {
         return false;
     }
 });
@@ -55,7 +55,7 @@ $('#delete_modal').modal({
 /*
  * Defines click function for when an event card is clicked
  */
-$("#add_modal_cancel").click(function(e) {
+$("#add_modal_cancel").click(function (e) {
     $('#add_modal_form').form('clear');
 });
 
@@ -63,7 +63,7 @@ $("#add_modal_cancel").click(function(e) {
 /*
  * Defines click function for when an event card is clicked
  */
-$("#edit_modal_cancel").click(function(e) {
+$("#edit_modal_cancel").click(function (e) {
     $('#edit_modal_form').form('clear');
 });
 
@@ -87,7 +87,7 @@ function convertTo24Hour(time) {
 /*
  * Defines click function for when an event card is clicked
  */
-$(".raised.blue.card").click(function(e) {
+$(".raised.blue.card").click(function (e) {
     mostRecClickedEvent = $(this);
 });
 
@@ -96,7 +96,7 @@ $(".raised.blue.card").click(function(e) {
  * Defines click function for when the "Yes" button is clicked
  * in the delete modal
  */
-$("#edit_modal_save").click(function(e) {
+$("#edit_modal_save").click(function (e) {
     document.getElementById('edit_modal_form_hiddenID').value = mostRecClickedEvent[0].id;
 });
 
@@ -105,19 +105,19 @@ $("#edit_modal_save").click(function(e) {
  * Defines click function for when the "Yes" button is clicked
  * in the delete modal
  */
-$("#delete_modal_yes").click(function(e) {
+$("#delete_modal_yes").click(function (e) {
     var URL = "/deleteEvent?id=" + mostRecClickedEvent[0].id;
     window.location.href = URL;
 });
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     function open_edit_modal() {
         $('#edit_modal').modal('show');
     }
 
-    $(".edit_event_button").click(function() {
+    $(".edit_event_button").click(function () {
 
         open_edit_modal();
 
@@ -162,7 +162,7 @@ $(document).ready(function() {
 
     });
 
-    $(".delete_event_button").click(function() {
+    $(".delete_event_button").click(function () {
         open_delete_modal();
     });
 
@@ -170,16 +170,13 @@ $(document).ready(function() {
         $('#delete_modal').modal('show');
     }
 
-    $(".add_event_button").click(function() {
+    $(".add_event_button").click(function () {
         open_add_modal();
     });
 
     function open_add_modal() {
         $('#add_modal').modal('show');
     }
-
-    var labelsarray = [];
-    var hoursperevent = [];
 
     function timeStringToFloat(time) {
         var hoursMinutes = time.split(/[.:]/);
@@ -188,50 +185,62 @@ $(document).ready(function() {
         return hours + minutes / 60;
     }
 
-    function getLabelandTime(labels, hoursperevent) {
-        $.getJSON("data.json", function(data) {
-        $.each( data.events, function (index, currevent) {
-            /*if (currevent.hasEndTime == true) {
-                bool found = false;
-                for (int j = 0; j < labels.length; j++) {
-                    if (labels[j] == events[i].category)
-                    {
-                        found = true;
-                        hoursperevent[j] = timeStringToFloat(events[i].endTime)-timeStringToFloat(events[i].startTime);
+    labelsarray = [];
+    hoursperevent = [];
+
+    myarray = [];
+    var x;
+
+    function getLabelandTime(labels, hours) {
+        $.getJSON("/data.json", function (data) {
+            x = data;
+            console.log("1. data: " + data);
+            $.each(data.events, function (index, currevent) {
+                if (currevent.hasEndTime == true) {
+                    if (labels.indexOf(currevent.category) == -1) {
+                        labels.push(currevent.category);
+                        var delta = timeStringToFloat(currevent.endTime) - timeStringToFloat(currevent.startTime);
+                        delta = delta < 0 ? delta + 24 : delta;
+                        delta = Math.floor(delta);
+                        hours.push(delta);
+                        myarray.push(delta);
+                        console.info(delta);
+                    }
+                    else {
+                        var delta = timeStringToFloat(currevent.endTime) - timeStringToFloat(currevent.startTime);
+                        delta = delta < 0 ? delta + 24 : delta;
+                        delta = Math.floor(delta);
+                        hours[labels.indexOf(currevent.category)] = delta;
+                        myarray.push(delta);
                     }
                 }
-                if (found == false) {
-                    labels.push(events[i].category);
-                    hoursperevent.push((timeStringToFloat(events[i].endTime)-timeStringToFloat(events[i].startTime)));
-                }
-            }*/
-        });
+            });
         });
     };
 
-    getLabelandTime(labelsarray,hoursperevent);
-    
-    console.log("Hello");
+    getLabelandTime(labelsarray, hoursperevent);
 
     var ctx = document.getElementById("myChart");
+      
+    myarray.push(50);
+    myarray.push(70);
+
+    console.log("2. x: " + x);
+    console.log("3. labelsarray: " + labelsarray);
+    console.log("4. hoursperevent: " + hoursperevent);
+    console.log("5. myarray: " + myarray);
 
     var data = {
-        labels: [
-            "Work",
-            "Fun",
-            "Sleep"
-        ],
+        labels: labelsarray,
         datasets: [{
-            data: [70, 15, 20],
+            data: myarray,
             backgroundColor: [
                 "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
+                "#36A2EB"
             ],
             hoverBackgroundColor: [
                 "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
+                "#36A2EB"
             ]
         }]
     };
