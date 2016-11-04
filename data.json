@@ -2,13 +2,13 @@
     "events": [{
         "name": "Lunch With Family",
         "startTime": "12:30",
-        "endTime": "",
+        "endTime": "13:30",
         "startTime12hr": "12:30pm",
-        "endTime12hr": "",
+        "endTime12hr": "1:30pm",
         "date": "2016-11-08",
         "details": "Armins birthday lunch.",
         "category": "Fun",
-        "hasEndTime": false,
+        "hasEndTime": true,
         "id": "event1"
     }, {
         "name": "Gym",
@@ -24,13 +24,13 @@
     }, {
         "name": "Dinner Date",
         "startTime": "19:00",
-        "endTime": "",
+        "endTime": "20:30",
         "startTime12hr": "7:00pm",
-        "endTime12hr": "",
+        "endTime12hr": "8:30pm",
         "date": "2016-11-15",
         "details": "Dinner with Emily",
         "category": "Fun",
-        "hasEndTime": false,
+        "hasEndTime": true,
         "id": "event2"
     }, {
         "name": "Sleep",

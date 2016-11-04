@@ -1,4 +1,5 @@
 var data = require('../data.json');
+var data2 = require('../static/data.json');
 var moods = require('../moodEntries.json');
 var happyPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg";
 var sadPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f62d.svg";
@@ -69,10 +70,9 @@ exports.addNewEvent = function(req, res) {
     }
 
     data.events.push(newEvent);
+    data2.events.push(newEvent);
 
     data.events.sort(keysrt('startTime', false));
-
-    console.log(data.events);
 
     res.render('home', data);
 };
