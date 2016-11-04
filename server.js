@@ -74,7 +74,7 @@ app.post('/addEvent', event.addNewEvent);
 
 app.post('/editEvent', event.editEvent);
 
-app.post('/deleteEvent', event.deleteEvent);
+app.get('/deleteEvent', event.deleteEvent);
 
 app.post('/editMoodEntry', event.editMoodEntry);
 

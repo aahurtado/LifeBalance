@@ -116,10 +116,12 @@ $(document).ready(function () {
      */
     $("#delete_modal_yes").click(function (e) {
         var id = mostRecClickedEvent[0].id;
-        id = "" + id + "";
-        $.post("/deleteEvent", {
-            "id": id
-        }, updateGraph);
+        var URL = "/deleteEvent?id=" + mostRecClickedEvent[0].id;
+        window.location.href = URL;
+        // id = "" + id + "";
+        // $.post("/deleteEvent", {
+        //     "id": id
+        // }, updateGraph);
     });
 
     function open_edit_modal() {
@@ -213,7 +215,7 @@ $(document).ready(function () {
                     hours.push(delta);
                 }
                 else {
-                    hours[labels.indexOf(currevent.category)] = delta;
+                    hours[labels.indexOf(currevent.category)] += delta;
                 }
             }
         });

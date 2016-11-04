@@ -131,8 +131,8 @@ exports.editEvent = function(req, res) {
  * GET home page.
  */
 exports.deleteEvent = function(req, res) {
-    var id = req.body.id;
-console.log(id);
+    var id = req.query.id;
+
     var i;
     for (i = 0; i < data.events.length; i++) {
         if (data.events[i].id == id) {
