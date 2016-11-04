@@ -191,7 +191,6 @@ $(document).ready(function() {
     function getLabelandTime(labels, hoursperevent) {
         $.getJSON("data.json", function(data) {
         $.each( data.events, function (index, currevent) {
-            alert(currevent.name);
             /*if (currevent.hasEndTime == true) {
                 bool found = false;
                 for (int j = 0; j < labels.length; j++) {
