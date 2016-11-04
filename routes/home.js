@@ -1,5 +1,4 @@
 var data = require('../data.json');
-var gData = require('../graphData.json');
 
 // sort on key values
 function keysrt(key, desc) {
@@ -12,12 +11,14 @@ exports.view = function(req, res) {
 
     data.events.sort(keysrt('startTime', false));
 
-    console.log(data.events);
-
     res.render('home', {
         title: 'Home',
         homeIsActive: true,
-        events: data.events,
-        graphData: gData
+        events: data.events
     });
+
+};
+
+exports.eventsJSON = function(req, res) {
+    res.json(data.events);
 };

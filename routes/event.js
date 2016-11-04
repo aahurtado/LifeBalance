@@ -1,6 +1,6 @@
 var data = require('../data.json');
-var data2 = require('../static/data.json');
 var moods = require('../moodEntries.json');
+
 var happyPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg";
 var sadPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f62d.svg";
 var tiredPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f634.svg";
@@ -69,8 +69,11 @@ exports.addNewEvent = function(req, res) {
         "id": newID
     }
 
+    console.log("[DEBUG] Before adding:");
+    console.log(data.events);
     data.events.push(newEvent);
-    data2.events.push(newEvent);
+    console.log("[DEBUG] After adding:");
+    console.log(data.events);
 
     data.events.sort(keysrt('startTime', false));
 
@@ -128,8 +131,8 @@ exports.editEvent = function(req, res) {
  * GET home page.
  */
 exports.deleteEvent = function(req, res) {
-    var id = req.query.id;
-
+    var id = req.body.id;
+console.log(id);
     var i;
     for (i = 0; i < data.events.length; i++) {
         if (data.events[i].id == id) {

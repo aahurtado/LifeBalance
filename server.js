@@ -74,9 +74,11 @@ app.post('/addEvent', event.addNewEvent);
 
 app.post('/editEvent', event.editEvent);
 
-app.get('/deleteEvent', event.deleteEvent);
+app.post('/deleteEvent', event.deleteEvent);
 
 app.post('/editMoodEntry', event.editMoodEntry);
+
+app.get('/getEvents', home.eventsJSON);
 
 /*app.all('*', function(req, res) {
     res.redirect('/404.html');

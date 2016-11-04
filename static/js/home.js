@@ -38,7 +38,7 @@ $('#add_modal_form, #edit_modal_form').form({
 $('#add_modal, #edit_modal').modal({
     closable: true,
     blurring: true,
-    onApprove: function() {
+    onApprove: function () {
         return false;
     }
 });
@@ -55,7 +55,7 @@ $('#delete_modal').modal({
 /*
  * Defines click function for when an event card is clicked
  */
-$("#add_modal_cancel").click(function(e) {
+$("#add_modal_cancel").click(function (e) {
     $('#add_modal_form').form('clear');
 });
 
@@ -63,7 +63,7 @@ $("#add_modal_cancel").click(function(e) {
 /*
  * Defines click function for when an event card is clicked
  */
-$("#edit_modal_cancel").click(function(e) {
+$("#edit_modal_cancel").click(function (e) {
     $('#edit_modal_form').form('clear');
 });
 
@@ -87,37 +87,46 @@ function convertTo24Hour(time) {
 /*
  * Defines click function for when an event card is clicked
  */
-$(".raised.blue.card").click(function(e) {
+$(".raised.blue.card").click(function (e) {
     mostRecClickedEvent = $(this);
 });
 
 
-/*
- * Defines click function for when the "Yes" button is clicked
- * in the delete modal
- */
-$("#edit_modal_save").click(function(e) {
-    document.getElementById('edit_modal_form_hiddenID').value = mostRecClickedEvent[0].id;
-});
+$(document).ready(function () {
 
+    /*
+     * Defines click function for when the "Yes" button is clicked
+     * in the delete modal
+     */
+    $("#edit_modal_save").click(function (e) {
+        document.getElementById('edit_modal_form_hiddenID').value = mostRecClickedEvent[0].id;
+        updateGraph();
+    });
 
-/*
- * Defines click function for when the "Yes" button is clicked
- * in the delete modal
- */
-$("#delete_modal_yes").click(function(e) {
-    var URL = "/deleteEvent?id=" + mostRecClickedEvent[0].id;
-    window.location.href = URL;
-});
+    /*
+     * Defines click function for when an event card is clicked
+     */
+    $("#add_modal_add").click(function (e) {
+        updateGraph();
+    });
 
-
-$(document).ready(function() {
+    /*
+     * Defines click function for when the "Yes" button is clicked
+     * in the delete modal
+     */
+    $("#delete_modal_yes").click(function (e) {
+        var id = mostRecClickedEvent[0].id;
+        id = "" + id + "";
+        $.post("/deleteEvent", {
+            "id": id
+        }, updateGraph);
+    });
 
     function open_edit_modal() {
         $('#edit_modal').modal('show');
     }
 
-    $(".edit_event_button").click(function() {
+    $(".edit_event_button").click(function () {
 
         open_edit_modal();
 
@@ -162,7 +171,7 @@ $(document).ready(function() {
 
     });
 
-    $(".delete_event_button").click(function() {
+    $(".delete_event_button").click(function () {
         open_delete_modal();
     });
 
@@ -170,7 +179,7 @@ $(document).ready(function() {
         $('#delete_modal').modal('show');
     }
 
-    $(".add_event_button").click(function() {
+    $(".add_event_button").click(function () {
         open_add_modal();
     });
 
@@ -185,40 +194,39 @@ $(document).ready(function() {
         return hours + minutes / 60;
     }
 
-    labelsarray = [];
-    hoursperevent = [];
+    labels = [];
+    hours = [];
 
-    function getLabelandTime(labels, hours) {
-        $.getJSON("data.json", function(data) {
-            $.each(data.events, function(index, currevent) {
-                if (currevent.hasEndTime == true) {
-                    if (labels.indexOf(currevent.category) == -1) {
-                        labels.push(currevent.category);
-                        var delta = timeStringToFloat(currevent.endTime) - timeStringToFloat(currevent.startTime);
-                        delta = delta < 0 ? delta + 24 : delta;
-                        hours.push(delta);
-                    }
-                    else {
-                        var delta = timeStringToFloat(currevent.endTime) - timeStringToFloat(currevent.startTime);
-                        delta = delta < 0 ? delta + 24 : delta;
-                        hours[labels.indexOf(currevent.category)] = delta;
-                    }
+    function updateGraph() {
+        $.get("/getEvents", updateChart);
+    }
+
+    $.get("/getEvents", updateChart);
+
+    function updateChart(result) {
+        $.each(result, function (index, currevent) {
+            if (currevent.hasEndTime == true) {
+                delta = timeStringToFloat(currevent.endTime) - timeStringToFloat(currevent.startTime);
+                delta = delta < 0 ? delta + 24 : delta;
+                if (labels.indexOf(currevent.category) == -1) {
+                    labels.push(currevent.category);
+                    hours.push(delta);
                 }
-            });
-        }).done(function() {
-            createChart(labelsarray, hoursperevent);
+                else {
+                    hours[labels.indexOf(currevent.category)] = delta;
+                }
+            }
         });
-    };
+        createChart(labels, hours);
+    }
 
-    getLabelandTime(labelsarray, hoursperevent);
+    function createChart(labels, data) {
+        var ctx = document.getElementById("myChart");
 
-    var ctx = document.getElementById("myChart");
-
-    function createChart(x, y) {
         var data = {
-            labels: x,
+            labels: labels,
             datasets: [{
-                data: y,
+                data: data,
                 backgroundColor: [
                     "#FF6384",
                     "#36A2EB",
