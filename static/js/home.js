@@ -178,6 +178,42 @@ $(document).ready(function() {
         $('#add_modal').modal('show');
     }
 
+    var labelsarray = [];
+    var hoursperevent = [];
+
+    function timeStringToFloat(time) {
+        var hoursMinutes = time.split(/[.:]/);
+        var hours = parseInt(hoursMinutes[0], 10);
+        var minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1], 10) : 0;
+        return hours + minutes / 60;
+    }
+
+    function getLabelandTime(labels, hoursperevent) {
+        $.getJSON("data.json", function(data) {
+        $.each( data.events, function (index, currevent) {
+            alert(currevent.name);
+            /*if (currevent.hasEndTime == true) {
+                bool found = false;
+                for (int j = 0; j < labels.length; j++) {
+                    if (labels[j] == events[i].category)
+                    {
+                        found = true;
+                        hoursperevent[j] = timeStringToFloat(events[i].endTime)-timeStringToFloat(events[i].startTime);
+                    }
+                }
+                if (found == false) {
+                    labels.push(events[i].category);
+                    hoursperevent.push((timeStringToFloat(events[i].endTime)-timeStringToFloat(events[i].startTime)));
+                }
+            }*/
+        });
+        });
+    };
+
+    getLabelandTime(labelsarray,hoursperevent);
+    
+    console.log("Hello");
+
     var ctx = document.getElementById("myChart");
 
     var data = {
