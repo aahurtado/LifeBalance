@@ -7,23 +7,15 @@
         </div>
         <div class="column">
             <h3 class="ui dividing header">Suggestions:</h3>
-            <div class="">You need more: <i>Fun</i></div>
+            <div class="">You need more: <i>{{category}}</i></div>
             <div class="ui middle aligned bulleted animated list">
+                {{#each suggestions}}
                 <div class="item">
                     <div class="content">
-                        <div class="">Swimming</div>
+                        <div class="">{{this}}</div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="content">
-                        <div class="">Hiking</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="content">
-                        <div class="">Surfing</div>
-                    </div>
-                </div>
+                {{/each}}
             </div>
         </div>
     </div>

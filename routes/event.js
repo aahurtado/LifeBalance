@@ -1,5 +1,6 @@
 var data = require('../data.json');
 var moods = require('../moodEntries.json');
+var home = require('./home');
 
 var happyPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg";
 var sadPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f62d.svg";
@@ -69,11 +70,7 @@ exports.addNewEvent = function(req, res) {
         "id": newID
     }
 
-    console.log("[DEBUG] Before adding:");
-    console.log(data.events);
     data.events.push(newEvent);
-    console.log("[DEBUG] After adding:");
-    console.log(data.events);
 
     data.events.sort(keysrt('startTime', false));
 
