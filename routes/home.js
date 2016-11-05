@@ -1,35 +1,15 @@
 var data = require('../data.json');
+
 var fun = ["Hiking", "Swimming", "Bowling"];
 var work = ["Go to your job", "Gym", "Go to meetings"];
 var sleep = ["Go to bed earlier", "Drink warm milk", "Take a nap"];
 
-exports.calculateSuggestions = function() {
-    console.log("Hello Wolrd");
-}
-
-function timeStringToFloat(time) {
-    var hoursMinutes = time.split(/[.:]/);
-    var hours = parseInt(hoursMinutes[0], 10);
-    var minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1], 10) : 0;
-    return hours + minutes / 60;
-}
-
-
-// sort on key values
-function keysrt(key, desc) {
-    return function (a, b) {
-        return desc ? ~~(a[key] < b[key]) : ~~(a[key] > b[key]);
-    }
-}
-
-
-exports.view = function (req, res) {
-    data.events.sort(keysrt('startTime', false));
-
+/*
+ * GET home page.
+ */
+function calcHoursPerCategory(labels, hours) {
     var i;
     var currevent;
-    var labels = [];
-    var hours = [];
     for (i = 0; i < data.events.length; i++) {
         currevent = data.events[i];
         if (currevent.hasEndTime == true) {
@@ -44,20 +24,70 @@ exports.view = function (req, res) {
             }
         }
     }
+}
 
+
+/*
+ * GET home page.
+ */
+function indexOfLeastCategory(arr) {
     var min = Number.MAX_SAFE_INTEGER;
     var idx;
-    for (i = 0; i < hours.length; i++) {
-        if (hours[i] < min) {
-            min = hours[i];
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
             idx = i;
         }
     }
+    return idx;
+}
 
-    var suggestions;
-    if (labels[idx] == "Work") { suggestions = work; }
-    else if (labels[idx] == "Fun") { suggestions = fun; }
-    else if (labels[idx] == "Sleep") { suggestions = sleep; }
+
+/*
+ * GET home page.
+ */
+function calcSuggestCategory(labels, hours) {
+
+    var idx = indexOfLeastCategory(hours);
+
+    if (labels[idx] == "Work") { return work; }
+    else if (labels[idx] == "Fun") { return fun; }
+    else if (labels[idx] == "Sleep") { return sleep; }
+}
+
+
+/*
+ * GET home page.
+ */
+function timeStringToFloat(time) {
+    var hoursMinutes = time.split(/[.:]/);
+    var hours = parseInt(hoursMinutes[0], 10);
+    var minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1], 10) : 0;
+    return hours + minutes / 60;
+}
+
+
+/*
+ * GET home page.
+ */
+function keysrt(key, desc) {
+    return function (a, b) {
+        return desc ? ~~(a[key] < b[key]) : ~~(a[key] > b[key]);
+    }
+}
+
+
+/*
+ * GET home page.
+ */
+exports.view = function (req, res) {
+    data.events.sort(keysrt('startTime', false));
+
+    var labels = [];
+    var hours = [];
+    calcHoursPerCategory(labels, hours);
+    var suggestions = calcSuggestCategory(labels, hours);
+    var idx = indexOfLeastCategory(hours);
 
     res.render('home', {
         title: 'Home',
@@ -66,10 +96,12 @@ exports.view = function (req, res) {
         suggestions: suggestions,
         events: data.events
     });
-
 };
 
 
+/*
+ * GET home page.
+ */
 exports.eventsJSON = function (req, res) {
     res.json(data.events);
 };
