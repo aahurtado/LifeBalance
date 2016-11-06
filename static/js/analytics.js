@@ -30,13 +30,12 @@ $(document).ready(function () {
                 }
             }
         });
-        createChart(labels, hours);
+        createChart(labels, hours, "monthDonut");
+        createChart(labels, hours, "weekDonut");
     }
 
-    function createChart(labels, data) {
-        console.log(labels);
-        console.log(hours);
-        var ctx = document.getElementById("monthDonut");
+    function createChart(labels, data, id) {
+        var ctx = document.getElementById(id);
 
         var data = {
             labels: labels,
