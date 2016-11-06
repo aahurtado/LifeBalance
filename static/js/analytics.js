@@ -1,5 +1,18 @@
 $(document).ready(function () {
-    
+
+    $('.ui .item').on('click', function () {
+        $('.ui .item').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    $('.ui.sticky')
+        .sticky({
+            context: '#mySegment'
+        })
+        ;
+
+    $("#activeTab").addClass("active");
+
     function timeStringToFloat(time) {
         var hoursMinutes = time.split(/[.:]/);
         var hours = parseInt(hoursMinutes[0], 10);
@@ -32,6 +45,7 @@ $(document).ready(function () {
         });
         createChart(labels, hours, "monthDonut");
         createChart(labels, hours, "weekDonut");
+        createChart(labels, hours, "dayDonut");
     }
 
     function createChart(labels, data, id) {

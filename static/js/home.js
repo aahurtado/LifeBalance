@@ -94,6 +94,8 @@ $(".raised.blue.card").click(function (e) {
 
 $(document).ready(function () {
 
+    $("#homeTab").addClass("active");
+
     /*
      * Defines click function for when the "Yes" button is clicked
      * in the delete modal
