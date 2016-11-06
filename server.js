@@ -12,11 +12,9 @@ var index = require('./routes/index');
 var sign_in = require('./routes/sign_in');
 var sign_up = require('./routes/sign_up');
 var home = require('./routes/home');
-var pastData = require('./routes/past_data');
 var moodDiary = require('./routes/mood_diary');
 var calendar = require('./routes/calendar');
-var suggestions = require('./routes/suggestions');
-var friends = require('./routes/friends');
+var analytics = require('./routes/analytics');
 var settings = require('./routes/settings');
 var help = require('./routes/help');
 
@@ -52,19 +50,13 @@ app.get('/home', home.view);
 
 app.post('/home', home.view);
 
-app.get('/past_data', pastData.view);
-
-app.get('/past_data/:userName', pastData.viewWithUser);
-
 app.get('/mood_diary', moodDiary.view);
 
 app.get('/calendar', calendar.view2);
 
 app.get('/calendar2', calendar.view2);
 
-app.get('/suggestions', suggestions.view);
-
-app.get('/friends', friends.view);
+app.get('/analytics', analytics.view);
 
 app.get('/settings', settings.view);
 
