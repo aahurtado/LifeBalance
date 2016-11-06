@@ -28,12 +28,8 @@ function calcHoursPerCategory(labels, hours) {
             delta = timeStringToFloat(currevent.endTime) - timeStringToFloat(currevent.startTime);
             delta = delta < 0 ? delta + 24 : delta;
             if (labels.indexOf(currevent.category) == -1) {
-                console.log("Before:");
-                console.log(labels);
                 labels.push(currevent.category);
                 hours.push(delta);
-                console.log("After:");
-                console.log(labels);
             }
             else {
                 hours[labels.indexOf(currevent.category)] += delta;
@@ -217,10 +213,6 @@ exports.editEvent = function (req, res) {
     calcHoursPerCategory(labels, hours);
     var suggestions = calcSuggestCategory(labels, hours);
     var idx = indexOfLeastCategory(hours);
-
-    console.log("Edit event");
-    console.log(labels);
-    console.log(hours);
 
     res.render('home', {
         title: 'Home',
