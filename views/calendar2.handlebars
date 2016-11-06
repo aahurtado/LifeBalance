@@ -237,16 +237,25 @@
                 <label>Details:</label>
                 <input type="text" name="details" placeholder="Enter details">
             </div>
-            <div class="required field">
-                <label>Category:</label>
-                <select class="ui fluid search selection dropdown" name="category">
-                    <option value="">Choose a category</option>
-                    <option value="Work">Work</option>
-                    <option value="Fun">Fun</option>
-                    <option value="Sleep">Sleep</option>
-                </select>
+            <div class="ui grid">
+                <div class="eight wide column">
+                    <div class="required field">
+                        <label>Category:</label>
+                        <select class="ui fluid search selection dropdown" name="category">
+                        <option value="">Choose a category</option>
+                        {{#each eventCategories}}
+                            <option value="{{this}}">{{this}}</option>
+                         {{/each}}
+                    </select>
+                    </div>
+                </div>
+                <div class="eight wide column">
+                    <div class="field">
+                        <label>Or enter a new category:</label>
+                        <input type="text" name="newCategory" placeholder="Enter category">
+                    </div>
+                </div>
             </div>
-            <div class="ui error message"></div>
         </form>
     </div>
     <div class="actions">
@@ -301,14 +310,24 @@
                 <label>Details:</label>
                 <input type="text" name="details" placeholder="Enter new details">
             </div>
-            <div class="required field">
-                <label>Category:</label>
-                <select class="ui fluid search selection dropdown" name="category">
-                    <option value="">Choose a category</option>
-                    <option value="Work">Work</option>
-                    <option value="Fun">Fun</option>
-                    <option value="Sleep">Sleep</option>
-                </select>
+            <div class="ui grid">
+                <div class="eight wide column">
+                    <div class="required field">
+                        <label>Category:</label>
+                        <select class="ui fluid search selection dropdown" name="category">
+                        <option value="">Choose a category</option>
+                        {{#each eventCategories}}
+                            <option value="{{this}}">{{this}}</option>
+                         {{/each}}
+                    </select>
+                    </div>
+                </div>
+                <div class="eight wide column">
+                    <div class="field">
+                        <label>Or enter a new category:</label>
+                        <input type="text" name="newCategory" placeholder="Enter category">
+                    </div>
+                </div>
             </div>
         </form>
     </div>

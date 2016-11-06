@@ -20,13 +20,13 @@ $('#add_modal_form, #edit_modal_form').form({
                 prompt: 'Please enter a start time'
             }]
         },
-        category: {
-            identifier: 'category',
-            rules: [{
-                type: 'empty',
-                prompt: 'Please choose a category'
-            }]
-        }
+        // category: {
+        //     identifier: 'category',
+        //     rules: [{
+        //         type: 'empty',
+        //         prompt: 'Please choose a category'
+        //     }]
+        // }
     },
     inline: true
 });

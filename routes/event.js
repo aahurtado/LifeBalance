@@ -113,6 +113,7 @@ exports.addNewEvent = function (req, res) {
     var endDate = req.body.endDate;
     var details = req.body.details;
     var category = req.body.category;
+    var newCategory = req.body.newCategory;
     var hasEndTime;
 
     if (endTime != "") {
@@ -124,6 +125,9 @@ exports.addNewEvent = function (req, res) {
     var newID = ID + curIDNum;
     curIDNum++;
 
+    var eventCategory;
+    eventCategory = newCategory == "" ? category : newCategory;
+
     var newEvent = {
         "name": name,
         "startTime": startTime,
@@ -133,7 +137,7 @@ exports.addNewEvent = function (req, res) {
         "startDate": startDate,
         "endDate": endDate,
         "details": details,
-        "category": category,
+        "category": eventCategory,
         "hasEndTime": hasEndTime,
         "id": newID
     }
@@ -153,7 +157,8 @@ exports.addNewEvent = function (req, res) {
         homeIsActive: true,
         category: labels[idx],
         suggestions: suggestions,
-        events: data.events
+        events: data.events,
+        eventCategories: labels
     });
 };
 
@@ -171,6 +176,7 @@ exports.editEvent = function (req, res) {
     var endDate = req.body.endDate;
     var details = req.body.details;
     var category = req.body.category;
+    var newCategory = req.body.newCategory;
     var id = req.body.id;
     var hasEndTime;
 
@@ -189,6 +195,9 @@ exports.editEvent = function (req, res) {
 
     var event = data.events[idx];
 
+    var eventCategory;
+    eventCategory = newCategory == "" ? category : newCategory;
+
     event.name = name;
     event.startTime = startTime;
     event.endTime = endTime;
@@ -197,7 +206,7 @@ exports.editEvent = function (req, res) {
     event.startDate = startDate;
     event.endDate = endDate;
     event.details = details;
-    event.category = category;
+    event.category = eventCategory;
     event.hasEndTime = hasEndTime;
 
     data.events.sort(keysrt('startTime', false));
@@ -213,7 +222,8 @@ exports.editEvent = function (req, res) {
         homeIsActive: true,
         category: labels[idx],
         suggestions: suggestions,
-        events: data.events
+        events: data.events,
+        eventCategories: labels
     });
 };
 

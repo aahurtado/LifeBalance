@@ -94,7 +94,8 @@ exports.view = function (req, res) {
         homeIsActive: true,
         category: labels[idx],
         suggestions: suggestions,
-        events: data.events
+        events: data.events,
+        eventCategories: labels
     });
 };
 
