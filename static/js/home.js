@@ -227,20 +227,17 @@ $(document).ready(function () {
     function createChart(labels, data) {
         var ctx = document.getElementById("myChart");
 
+        if (data.length == 0) { data = [100]; labels = ["Example Category"]; }
+
+        bg = ["#FF6384", "#36A2EB", "#FFCE56", "#63E072", "#00E5E5"];
+        hbg = ["#FF6384", "#36A2EB", "#FFCE56", "#63E072", "#00E5E5"];
+
         var data = {
             labels: labels,
             datasets: [{
                 data: data,
-                backgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
-                ],
-                hoverBackgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
-                ]
+                backgroundColor: bg,
+                hoverBackgroundColor: hbg
             }]
         };
 

@@ -9,11 +9,12 @@ var happyPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg";
 var sadPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f62d.svg";
 var tiredPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f634.svg";
 
+var labels = [];
+var hours = [];
 
 // Used to construct the next event ID
 var curIDNum = data.events.length + 1;
 var ID = "event";
-
 
 /*
  * GET home page.
@@ -27,8 +28,12 @@ function calcHoursPerCategory(labels, hours) {
             delta = timeStringToFloat(currevent.endTime) - timeStringToFloat(currevent.startTime);
             delta = delta < 0 ? delta + 24 : delta;
             if (labels.indexOf(currevent.category) == -1) {
+                console.log("Before:");
+                console.log(labels);
                 labels.push(currevent.category);
                 hours.push(delta);
+                console.log("After:");
+                console.log(labels);
             }
             else {
                 hours[labels.indexOf(currevent.category)] += delta;
@@ -146,8 +151,6 @@ exports.addNewEvent = function (req, res) {
 
     data.events.sort(keysrt('startTime', false));
 
-    var labels = [];
-    var hours = [];
     calcHoursPerCategory(labels, hours);
     var suggestions = calcSuggestCategory(labels, hours);
     var idx = indexOfLeastCategory(hours);
@@ -211,11 +214,13 @@ exports.editEvent = function (req, res) {
 
     data.events.sort(keysrt('startTime', false));
 
-    var labels = [];
-    var hours = [];
     calcHoursPerCategory(labels, hours);
     var suggestions = calcSuggestCategory(labels, hours);
     var idx = indexOfLeastCategory(hours);
+
+    console.log("Edit event");
+    console.log(labels);
+    console.log(hours);
 
     res.render('home', {
         title: 'Home',
@@ -247,8 +252,6 @@ exports.deleteEvent = function (req, res) {
 
     data.events.sort(keysrt('startTime', false));
 
-    var labels = [];
-    var hours = [];
     calcHoursPerCategory(labels, hours);
     var suggestions = calcSuggestCategory(labels, hours);
     var idx = indexOfLeastCategory(hours);

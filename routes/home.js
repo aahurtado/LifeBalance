@@ -4,6 +4,9 @@ var fun = ["Hiking", "Swimming", "Bowling"];
 var work = ["Go to your job", "Gym", "Go to meetings"];
 var sleep = ["Go to bed earlier", "Drink warm milk", "Take a nap"];
 
+var labels = [];
+var hours = [];
+
 /*
  * GET home page.
  */
@@ -83,8 +86,6 @@ function keysrt(key, desc) {
 exports.view = function (req, res) {
     data.events.sort(keysrt('startTime', false));
 
-    var labels = [];
-    var hours = [];
     calcHoursPerCategory(labels, hours);
     var suggestions = calcSuggestCategory(labels, hours);
     var idx = indexOfLeastCategory(hours);

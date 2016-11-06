@@ -5,8 +5,10 @@ $(document).ready(function() {
 
     $('#sign_in_form').form({
         fields: {
-            email: ['email', 'empty'],
-            password: ['minLength[6]', 'empty']
+            // email: ['email', 'empty'],
+            // password: ['minLength[6]', 'empty']
+            email: ['not[""]'],
+            password: ['not[""]']
         }
     });
 
