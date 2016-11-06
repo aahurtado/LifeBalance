@@ -1,33 +1,28 @@
-<h1 class="ui header">Analytics</h1>
-
+<!--<h1 class="ui header">Analytics</h1>-->
 <div class="ui raised segment" id="mySegment">
-<!--<div class="ui basic segment" id="mySegment">-->
-    <div class="ui left rail">
-        <div class="ui sticky" style="width: 272px !important; height: 262.531px !important; left: 274.5px;">
-            <!--<div class="ui basic segment">-->
-                <h4 class="ui header">Charts:</h4>
-                <div class="ui vertical following fluid text secondary pointing menu">
-                    <a class="item" href="#month">Month</a>
-                    <a class="item" href="#week">Week</a>
-                    <a class="item" href="#day">Day</a>
-                </div>
-            <!--</div>-->
+    <div class="ui top attached tabular menu">
+        <a class="active item" data-tab="first">Month</a>
+        <a class="item" data-tab="second">Week</a>
+        <a class="item" data-tab="third">Day</a>
+    </div>
+    <div class="ui bottom attached active tab segment" data-tab="first">
+        <div class="ui horizontal divider" id="month">
+            <h2 class="ui header">Month's Balance</h2>
         </div>
+        <canvas id="monthDonut" width="200" height="125"></canvas>
     </div>
-    <div class="ui horizontal divider" id="month">
-        <h2 class="ui header">Month's Balance</h2>
+    <div class="ui bottom attached tab segment" data-tab="second">
+        <div class="ui horizontal divider" id="week">
+            <h2 class="ui header">Week's Balance</h2>
+        </div>
+        <canvas id="weekDonut" width="200" height="125"></canvas>
     </div>
-    <canvas id="monthDonut" width="200" height="125"></canvas>
-    <div class="ui section hidden clearing divider"></div>
-    <div class="ui horizontal divider" id="week">
-        <h2 class="ui header">Week's Balance</h2>
+    <div class="ui bottom attached tab segment" data-tab="third">
+        <div class="ui horizontal divider" id="day">
+            <h2 class="ui header">Day's Balance</h2>
+        </div>
+        <canvas id="dayDonut" width="200" height="125"></canvas>
     </div>
-    <canvas id="weekDonut" width="200" height="125"></canvas>
-    <div class="ui section hidden clearing divider"></div>
-    <div class="ui horizontal divider" id="day">
-        <h2 class="ui header">Day's Balance</h2>
-    </div>
-    <canvas id="dayDonut" width="200" height="125"></canvas>
 </div>
 
 <script src="/js/analytics.js"></script>
