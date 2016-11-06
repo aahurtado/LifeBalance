@@ -78,22 +78,16 @@
                 </td>
                 <td class="selectable">
                     <h5 class="ui header">12</h5>
-                    <div class="ui middle aligned divided relaxed selection list">
-                        <div class="item">
-                            <div class="content">
-                                <div class="header">8am: Work meeting</div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="content">
-                                <div class="header">12:30pm: Lunch with Armin</div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="content">
-                                <div class="header">11pm: Sleep</div>
-                            </div>
-                        </div>
+                    <div class="ui selection list">
+                        <a class="item">
+                            <div class="ui red fluid label">8:00am: Work meeting</div>
+                        </a>
+                        <a class="item">
+                            <div class="ui blue fluid label">12:30pm: Lunch with Armin</div>
+                        </a>
+                        <a class="item">
+                            <div class="ui yellow fluid label">12:00pm: Sleep</div>
+                        </a>
                     </div>
                 </td>
             </tr>
@@ -103,22 +97,16 @@
                 </td>
                 <td class="selectable">
                     <h5 class="ui header">14</h5>
-                    <div class="ui middle aligned divided relaxed selection list">
-                        <div class="item">
-                            <div class="content">
-                                <div class="header">9am: Conference call</div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="content">
-                                <div class="header">6:30pm: Fave show is on!</div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="content">
-                                <div class="header">9pm: Gym</div>
-                            </div>
-                        </div>
+                    <div class="ui selection list">
+                        <a class="item">
+                            <div class="ui red fluid label">9am: Conference call</div>
+                        </a>
+                        <a class="item">
+                            <div class="ui blue fluid label">6:30pm: Fave show is on!</div>
+                        </a>
+                        <a class="item">
+                            <div class="ui red fluid label">9pm: Gym</div>
+                        </a>
                     </div>
                 </td>
                 <td class="selectable">
@@ -152,22 +140,16 @@
                 </td>
                 <td class="selectable">
                     <h5 class="ui header">24</h5>
-                    <div class="ui middle aligned divided relaxed selection list">
-                        <div class="item">
-                            <div class="content">
-                                <div class="header">11:30am: Flight to New York</div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="content">
-                                <div class="header">3pm: Fax boss</div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="content">
-                                <div class="header">8pm: Go to Time Square</div>
-                            </div>
-                        </div>
+                    <div class="ui selection list">
+                        <a class="item">
+                            <div class="ui red fluid label">11:30am: FLight to New York</div>
+                        </a>
+                        <a class="item">
+                            <div class="ui red fluid label">3:00pm: Fax boss</div>
+                        </a>
+                        <a class="item">
+                            <div class="ui blue fluid label">8:00pm: Go to Time Square</div>
+                        </a>
                     </div>
                 </td>
                 <td class="selectable">
@@ -198,22 +180,16 @@
                 </td>
                 <td class="selectable">
                     <h5 class="ui header">3</h5>
-                    <div class="ui middle aligned divided relaxed selection list">
-                        <div class="item">
-                            <div class="content">
-                                <div class="header">5pm: Flight to San Diego</div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="content">
-                                <div class="header">8pm: Dinner with friends</div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="content">
-                                <div class="header">10:30pm: Gym</div>
-                            </div>
-                        </div>
+                    <div class="ui selection list">
+                        <a class="item">
+                            <div class="ui red fluid label">5:00pm: Flight to San Diego</div>
+                        </a>
+                        <a class="item">
+                            <div class="ui blue fluid label">8:00pm: Dinner with friends</div>
+                        </a>
+                        <a class="item">
+                            <div class="ui red fluid label">10:30pm: Gym</div>
+                        </a>
                     </div>
                 </td>
             </tr>
@@ -333,9 +309,37 @@ e">
         </button>
     </div>
 </div>
-<!-- Alternative way -->
-<!-- <div class="ui segment">
-    <div class="ui stackable seven column grid">
+<div class="ui small modal" id="detail_modal">
+    <div class="header">Details</div>
+    <div class="content">
+        Here will go the details of the Event
     </div>
-</div> -->
+    <div class="actions">
+        <div class="ui basic negative icon clear button" id="detail_modal_close">
+            <i class="remove icon"></i> Close
+        </div>
+        <div class="ui basic negative icon clear button" id="detail_modal_delete">
+            <i class="remove icon"></i> Delete
+        </div>
+        <div class="ui basic positive icon button" id="detail_modal_edit">
+            <i class="edit icon"></i> Edit
+        </div>
+    </div>
+</div>
+<div class="ui small modal" id="delete_modal">
+    <div class="header">
+        Delete Event
+    </div>
+    <div class="content">
+        <p>Are you sure?</p>
+    </div>
+    <div class="actions">
+        <div class="ui basic negative button">
+            <i class="remove icon"></i> No
+        </div>
+        <div class="ui basic positive icon button" id="delete_modal_yes">
+            <i class="checkmark icon"></i> Yes
+        </div>
+    </div>
+</div>
 <script src="/js/calendar2.js"></script>
