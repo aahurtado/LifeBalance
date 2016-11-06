@@ -7,6 +7,7 @@
         </div>
         <div class="column">
             <h3 class="ui dividing header">Suggestions:</h3>
+            {{#if hasEvents}}
             <div class="">You need more: <i>{{category}}</i></div>
             <div class="ui middle aligned bulleted animated relaxed list">
                 {{#each suggestions}}
@@ -17,19 +18,22 @@
                 </div>
                 {{/each}}
             </div>
+            {{/if}}
         </div>
     </div>
 </div>
 <div class="ui raised segment">
     <div class="ui grid stackable">
-        <div class="thirteen wide column">
+        <div class="eleven wide column">
             <h2>Today's Schedule:</h2>
         </div>
-        <div class="right floated left aligned three wide column">
+        <div class="right floated left aligned five wide column">
+            <button class="ui negative inverted button clear_event_button"><i class="icon delete calendar"></i>Clear Schedule</button>
             <button class="ui primary button add_event_button"><i class="icon add"></i>Add Event</button>
         </div>
     </div>
     <div class="ui divider"></div>
+    {{#if hasEvents}}
     <div class="ui cards schedule_cards">
         {{#each events}}
         <div class="raised blue card" id="{{id}}">
@@ -52,6 +56,9 @@
         </div>
         {{/each}}
     </div>
+    {{else}}
+     <h2 class="ui dividing header">You have no events for Today!</h2>
+    {{/if}}
     <div class="ui small modal" id="delete_modal">
         <div class="header">
             Delete Event
@@ -64,6 +71,22 @@
                 <i class="remove icon"></i> No
             </div>
             <div class="ui basic positive icon button" id="delete_modal_yes">
+                <i class="checkmark icon"></i> Yes
+            </div>
+        </div>
+    </div>
+    <div class="ui small modal" id="delete_today_modal">
+        <div class="header">
+            Clear Today's Schedule
+        </div>
+        <div class="content">
+            <p>Are you sure?</p>
+        </div>
+        <div class="actions">
+            <div class="ui basic negative button">
+                <i class="remove icon"></i> No
+            </div>
+            <div class="ui basic positive icon button" id="delete_today_modal_yes">
                 <i class="checkmark icon"></i> Yes
             </div>
         </div>

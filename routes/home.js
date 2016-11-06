@@ -90,13 +90,16 @@ exports.view = function (req, res) {
     var suggestions = calcSuggestCategory(labels, hours);
     var idx = indexOfLeastCategory(hours);
 
+    var hasEvents = data.events.length == 0 ? false : true;
+
     res.render('home', {
         title: 'Home',
         homeIsActive: true,
         category: labels[idx],
         suggestions: suggestions,
         events: data.events,
-        eventCategories: labels
+        eventCategories: labels,
+        hasEvents: hasEvents
     });
 };
 

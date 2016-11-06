@@ -151,13 +151,16 @@ exports.addNewEvent = function (req, res) {
     var suggestions = calcSuggestCategory(labels, hours);
     var idx = indexOfLeastCategory(hours);
 
+    var hasEvents = data.events.length == 0 ? false : true;
+
     res.render('home', {
         title: 'Home',
         homeIsActive: true,
         category: labels[idx],
         suggestions: suggestions,
         events: data.events,
-        eventCategories: labels
+        eventCategories: labels,
+        hasEvents: hasEvents
     });
 };
 
@@ -214,13 +217,16 @@ exports.editEvent = function (req, res) {
     var suggestions = calcSuggestCategory(labels, hours);
     var idx = indexOfLeastCategory(hours);
 
+    var hasEvents = data.events.length == 0 ? false : true;
+
     res.render('home', {
         title: 'Home',
         homeIsActive: true,
         category: labels[idx],
         suggestions: suggestions,
         events: data.events,
-        eventCategories: labels
+        eventCategories: labels,
+        hasEvents: hasEvents
     });
 };
 
@@ -248,12 +254,35 @@ exports.deleteEvent = function (req, res) {
     var suggestions = calcSuggestCategory(labels, hours);
     var idx = indexOfLeastCategory(hours);
 
+    var hasEvents = data.events.length == 0 ? false : true;
+
     res.render('home', {
         title: 'Home',
         homeIsActive: true,
         category: labels[idx],
         suggestions: suggestions,
-        events: data.events
+        events: data.events,
+        hasEvents: hasEvents
+    });
+};
+
+
+/*
+ * GET home page.
+ */
+exports.deleteTodaysEvent = function (req, res) {
+
+    var i;
+    for (i = data.events.length; i > 0; i--) {
+        data.events.pop();
+    }
+
+    var hasEvents = data.events.length == 0 ? false : true;
+
+    res.render('home', {
+        title: 'Home',
+        homeIsActive: true,
+        hasEvents: hasEvents
     });
 };
 

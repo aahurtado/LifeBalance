@@ -68,6 +68,8 @@ app.post('/editEvent', event.editEvent);
 
 app.get('/deleteEvent', event.deleteEvent);
 
+app.get('/deleteTodaysEvent', event.deleteTodaysEvent);
+
 app.post('/editMoodEntry', event.editMoodEntry);
 
 app.get('/getEvents', home.eventsJSON);

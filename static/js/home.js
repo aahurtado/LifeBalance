@@ -173,6 +173,15 @@ $(document).ready(function () {
             "category": category
         });
 
+    });        
+
+    $(".clear_event_button").click(function () {
+        $('#delete_today_modal').modal('show');
+    });
+
+    $("#delete_today_modal_yes").click(function () {
+        var URL = "/deleteTodaysEvent?";
+        window.location.href = URL;
     });
 
     $(".delete_event_button").click(function () {
@@ -253,8 +262,5 @@ $(document).ready(function () {
             options: options
         });
     }
-
-
-
 
 });
