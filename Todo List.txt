@@ -1,5 +1,6 @@
 Todo:
 - Implement calendar page loading events from JSON
 - Implement calendar page adding and editing events
+- Add sorting events by date functonality so graphs can load data from the proper set of events
 - Prettify website with CSS
 - Add a database
