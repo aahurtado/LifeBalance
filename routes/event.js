@@ -109,7 +109,8 @@ exports.addNewEvent = function (req, res) {
     var endTime = req.body.endTime;
     var startTime12hr = tConvert(startTime);
     var endTime12hr = tConvert(endTime);
-    var date = req.body.date;
+    var startDate = req.body.startDate;
+    var endDate = req.body.endDate;
     var details = req.body.details;
     var category = req.body.category;
     var hasEndTime;
@@ -129,7 +130,8 @@ exports.addNewEvent = function (req, res) {
         "endTime": endTime,
         "startTime12hr": startTime12hr,
         "endTime12hr": endTime12hr,
-        "date": date,
+        "startDate": startDate,
+        "endDate": endDate,
         "details": details,
         "category": category,
         "hasEndTime": hasEndTime,
@@ -165,7 +167,8 @@ exports.editEvent = function (req, res) {
     var endTime = req.body.endTime;
     var startTime12hr = tConvert(startTime);
     var endTime12hr = tConvert(endTime);
-    var date = req.body.date;
+    var startDate = req.body.startDate;
+    var endDate = req.body.endDate;
     var details = req.body.details;
     var category = req.body.category;
     var id = req.body.id;
@@ -191,7 +194,8 @@ exports.editEvent = function (req, res) {
     event.endTime = endTime;
     event.startTime12hr = startTime12hr;
     event.endTime12hr = endTime12hr;
-    event.date = date;
+    event.startDate = startDate;
+    event.endDate = endDate;
     event.details = details;
     event.category = category;
     event.hasEndTime = hasEndTime;
