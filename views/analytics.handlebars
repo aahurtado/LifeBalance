@@ -4,6 +4,7 @@
         <a class="active item" data-tab="first">Month</a>
         <a class="item" data-tab="second">Week</a>
         <a class="item" data-tab="third">Day</a>
+        <a class="item" data-tab="fourth">Hours Per Category</a>
     </div>
     <div class="ui bottom attached active tab segment" data-tab="first">
         <div class="ui horizontal divider" id="month">
@@ -22,6 +23,12 @@
             <h2 class="ui header">Day's Balance</h2>
         </div>
         <canvas id="dayDonut" width="200" height="125"></canvas>
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="fourth">
+        <div class="ui horizontal divider" id="events">
+            <h2 class="ui header">Hours Per Category</h2>
+        </div>
+        <canvas id="eventsLine" width="200" height="125"></canvas>
     </div>
 </div>
 

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     $('.menu .item')
         .tab()
@@ -63,7 +63,7 @@ $(document).ready(function() {
     $.get("/getEvents", updateChart);
 
     function updateChart(result) {
-        $.each(result, function(index, currevent) {
+        $.each(result, function (index, currevent) {
             if (currevent.hasEndTime == true) {
                 delta = timeStringToFloat(currevent.endTime) - timeStringToFloat(currevent.startTime);
                 delta = delta < 0 ? delta + 24 : delta;
@@ -79,6 +79,7 @@ $(document).ready(function() {
         createChart(labels, hours, "monthDonut");
         createChart(labels, hours, "weekDonut");
         createChart(labels, hours, "dayDonut");
+        createLineChart();
     }
 
     function createChart(labels, data, id) {
@@ -111,6 +112,97 @@ $(document).ready(function() {
             type: 'doughnut',
             data: data,
             options: options
+        });
+    }
+
+    function createLineChart() {
+        var ctx = document.getElementById("eventsLine");
+
+        var data = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [
+                {
+                    label: "Work",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: "#FF6384",
+                    borderColor: "#FF6384",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "#FF6384",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "#FF6384",
+                    pointHoverBorderColor: "#FF6384",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
+                    data: [65, 59, 80, 81, 56, 55, 60],
+                    spanGaps: false,
+                },
+                {
+                    label: "Sleep",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: "#FFCE56",
+                    borderColor: "#FFCE56",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "#FFCE56",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "#FFCE56",
+                    pointHoverBorderColor: "#FFCE56",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
+                    data: [100, 50, 60, 40, 30, 25, 50],
+                    spanGaps: false,
+                },
+                {
+                    label: "Fun",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: "#36A2EB",
+                    borderColor: "#36A2EB",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "#36A2EB",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "#36A2EB",
+                    pointHoverBorderColor: "#36A2EB",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
+                    data: [30, 40, 50, 50, 45, 50, 55],
+                    spanGaps: false,
+                }
+            ]
+        };
+
+        var options = {
+            scales: {
+                xAxes: [{
+                    type: 'linear',
+                    position: 'bottom'
+                }]
+            }
+        };
+
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: data
+            // options: options
         });
     }
 
