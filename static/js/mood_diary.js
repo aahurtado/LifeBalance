@@ -5,7 +5,7 @@ var mostRecClickedMood;
 /*
  * Defines click function for when an event card is clicked
  */
-$(".mood_entry").click(function(e) {
+$(".mood_entry").click(function (e) {
     mostRecClickedMood = $(this);
 });
 
@@ -14,14 +14,18 @@ $(".mood_entry").click(function(e) {
  * Defines click function for when the "Yes" button is clicked
  * in the delete modal
  */
-$("#edit_modal_save").click(function(e) {
+$("#edit_modal_save").click(function (e) {
     document.getElementById('edit_modal_form_hiddenID').value = mostRecClickedMood[0].id;
 });
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-    $(".edit_mood_entry_button").click(function() {
+    $('.menu .item')
+        .tab()
+        ;
+
+    $(".edit_mood_entry_button").click(function () {
         open_edit_modal();
     });
 

@@ -9,12 +9,60 @@ var happyPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg";
 var sadPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f62d.svg";
 var tiredPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f634.svg";
 
-var labels = [];
-var hours = [];
-
 // Used to construct the next event ID
 var curIDNum = data.events.length + 1;
 var ID = "event";
+
+/*
+ * Takes an ID of an event and removes that event from the passed in array
+ */
+function deleteEvent(id, arr) {
+    var i;
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i].id == id) {
+            break;
+        }
+    }
+    if (i < arr.length) {
+        arr.splice(i, 1);
+    }
+}
+
+/*
+ * GET home page.
+ */
+function updateLabelsHours(event, add) {
+    delta = timeStringToFloat(event.endTime) - timeStringToFloat(event.startTime);
+    delta = delta < 0 ? delta + 24 : delta;
+
+    if (add == true) {
+        if (event.hasEndTime == true) {
+            if (labels.indexOf(event.category) == -1) {
+                labels.push(event.category);
+                hours.push(delta);
+            }
+            else {
+                hours[labels.indexOf(event.category)] += delta;
+            }
+        }
+    }
+    else {
+        hours[labels.indexOf(event.category)] -= delta;
+        if (hours[labels.indexOf(event.category)] <= 0) {
+            var i;
+            for (i = 0; i < labels.length; i++) {
+                if (labels[i] == event.category) {
+                    break;
+                }
+            }
+            if (i < labels.length) {
+                labels.splice(i, 1);
+                hours.splice(i, 1);
+            }
+        }
+    }
+
+}
 
 /*
  * GET home page.
@@ -147,7 +195,13 @@ exports.addNewEvent = function (req, res) {
 
     data.events.sort(keysrt('startTime', false));
 
+    var labels = [];
+    var hours = [];
+
     calcHoursPerCategory(labels, hours);
+
+    // updateLabelsHours(newEvent, true);
+
     var suggestions = calcSuggestCategory(labels, hours);
     var idx = indexOfLeastCategory(hours);
 
@@ -213,7 +267,13 @@ exports.editEvent = function (req, res) {
 
     data.events.sort(keysrt('startTime', false));
 
+    var labels = [];
+    var hours = [];
+
     calcHoursPerCategory(labels, hours);
+
+    // updateLabelsHours(event, true);
+
     var suggestions = calcSuggestCategory(labels, hours);
     var idx = indexOfLeastCategory(hours);
 
@@ -235,22 +295,18 @@ exports.editEvent = function (req, res) {
  * GET home page.
  */
 exports.deleteEvent = function (req, res) {
-    var id = req.query.id;
+    var id = req.query.id;   
 
-    var i;
-    for (i = 0; i < data.events.length; i++) {
-        if (data.events[i].id == id) {
-            break;
-        }
-    }
+    // updateLabelsHours(data.events[i], false);
 
-    if (i < data.events.length) {
-        data.events.splice(i, 1);
-    }
+    deleteEvent(id, data.events);
 
     data.events.sort(keysrt('startTime', false));
 
-    calcHoursPerCategory(labels, hours);
+    var labels = [];
+    var hours = [];
+
+     calcHoursPerCategory(labels, hours);
     var suggestions = calcSuggestCategory(labels, hours);
     var idx = indexOfLeastCategory(hours);
 
@@ -262,6 +318,7 @@ exports.deleteEvent = function (req, res) {
         category: labels[idx],
         suggestions: suggestions,
         events: data.events,
+        eventCategories: labels,
         hasEvents: hasEvents
     });
 };
