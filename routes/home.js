@@ -98,8 +98,8 @@ exports.view = function (req, res) {
     res.render('home', {
         title: 'Home',
         homeIsActive: true,
-        category: labels[idx],
-        suggestions: ["Hiking", "Swimming", "Bowling"],
+        category: labels[indexOfLeastCategory(hours)],
+        suggestions: calcSuggestCategory(labels, hours),
         events: data.events,
         eventCategories: labels,
         hasEvents: hasEvents
