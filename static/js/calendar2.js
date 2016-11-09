@@ -1,33 +1,31 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-    $('#edit_modal').modal({ allowMultiple: false });
+    $('#detail_modal')
+        .modal({
+            allowMultiple: true
+        })
+        ;
 
     $('#edit_modal').modal('attach events', '#detail_modal #detail_modal_edit');
-
-    $('#delete_modal').modal({ allowMultiple: false });
 
     $('#delete_modal').modal('attach events', '#detail_modal #detail_modal_delete');
 
     $('#delete_modal').modal('attach events', '#edit_modal #edit_modal_delete');
 
-    $("td").click(function () {
+    $("td").click(function() {
         open_add_modal();
     });
 
-    $(".ui.selection.list").click(function (e) {
+    $(".ui.selection.list").click(function(e) {
         e.stopPropagation();
-        $('#detail_modal').modal('show');         
-    });
-
-    $("#edit_modal_cancel, #detail_modal_close").click(function () {
-        $('#add_modal').modal('hide');
+        $('#detail_modal').modal('show');
     });
 
     function open_edit_modal() {
         $('#edit_modal').modal('show');
     }
 
-    $(".add_event_button").click(function () {
+    $(".add_event_button").click(function() {
         open_add_modal();
     });
 
@@ -45,6 +43,13 @@ $(document).ready(function () {
                 rules: [{
                     type: 'empty',
                     prompt: 'Please enter your name'
+                }]
+            },
+            startDate: {
+                identifier: 'startDate',
+                rules: [{
+                    type: 'empty',
+                    prompt: 'Please enter a start date'
                 }]
             },
             startTime: {
@@ -71,7 +76,7 @@ $(document).ready(function () {
     $('#add_modal, #edit_modal').modal({
         closable: true,
         blurring: false,
-        onApprove: function () {
+        onApprove: function() {
             return false;
         }
     });
@@ -79,7 +84,7 @@ $(document).ready(function () {
     /*
      * Defines click function for when an event card is clicked
      */
-    $("#add_modal_cancel").click(function (e) {
+    $("#add_modal_cancel").click(function(e) {
         $('#add_modal_form').form('clear');
     });
 
@@ -87,7 +92,7 @@ $(document).ready(function () {
     /*
      * Defines click function for when an event card is clicked
      */
-    $("#edit_modal_cancel").click(function (e) {
+    $("#edit_modal_cancel").click(function(e) {
         $('#edit_modal_form').form('clear');
     });
 

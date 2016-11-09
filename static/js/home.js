@@ -13,6 +13,13 @@ $('#add_modal_form, #edit_modal_form').form({
                 prompt: 'Please enter your name'
             }]
         },
+        startDate: {
+            identifier: 'startDate',
+            rules: [{
+                type: 'empty',
+                prompt: 'Please enter a start date'
+            }]
+        },
         startTime: {
             identifier: 'startTime',
             rules: [{
