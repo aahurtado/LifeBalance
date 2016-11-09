@@ -21,6 +21,8 @@ $("#edit_modal_save").click(function (e) {
 
 $(document).ready(function () {
 
+    $("#moodTab").addClass("active");
+
     $('.menu .item')
         .tab()
         ;

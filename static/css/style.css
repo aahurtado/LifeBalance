@@ -23,6 +23,19 @@ body {
 }
 @media (max-width: 767px) {
   body {
-    margin-top: 200px
+    margin-top: 50px
   }
+}
+
+#mobileNav {
+    display: none
+}
+
+@media only screen and (max-width: 700px) {
+    #signedInNav {
+        display: none
+    }
+    #mobileNav {
+        display: block
+    }
 }

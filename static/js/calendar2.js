@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    $("#calendarTab").addClass("active");
+
     $('#detail_modal')
         .modal({
             allowMultiple: true
