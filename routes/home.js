@@ -99,7 +99,7 @@ exports.view = function (req, res) {
         title: 'Home',
         homeIsActive: true,
         category: labels[idx],
-        suggestions: suggestions,
+        suggestions: ["Hiking", "Swimming", "Bowling"],
         events: data.events,
         eventCategories: labels,
         hasEvents: hasEvents
