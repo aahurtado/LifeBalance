@@ -6,8 +6,14 @@
     width: 100%;
 }
 
-.ui.fluid.card {
+.mood_entry_card {
     height: 325px;
+}
+
+@media (max-width: 767px) {
+    .mood_entry_card {
+        height: inherit;
+    }
 }
 
 .top.aligned {
@@ -39,11 +45,7 @@ body {
     display: none
 }
 
-div.column.mood_entry {
-    padding-top: 30px;
-}
-
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 767px) {
     #signedInNav {
         display: none
     }
