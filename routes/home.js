@@ -89,21 +89,28 @@ function keysrt(key, desc) {
 exports.view = function (req, res) {
     data.events.sort(keysrt('startTime', false));
 
-    calcHoursPerCategory(labels, hours);
-    var suggestions = calcSuggestCategory(labels, hours);
-    var idx = indexOfLeastCategory(hours);
+    // calcHoursPerCategory(labels, hours);
+    // var suggestions = calcSuggestCategory(labels, hours);
+    // var idx = indexOfLeastCategory(hours);
 
     var hasEvents = data.events.length == 0 ? false : true;
 
-    res.render('home', {
-        title: 'Home',
-        homeIsActive: true,
-        category: labels[indexOfLeastCategory(hours)],
-        suggestions: calcSuggestCategory(labels, hours),
-        events: data.events,
-        eventCategories: labels,
-        hasEvents: hasEvents
+    calcHoursPerCategory(labels, hours, function () {
+        calcSuggestCategory(labels, hours, function (suggestions) {
+            indexOfLeastCategory(labels, hours, function (idx) {
+                res.render('home', {
+                    title: 'Home',
+                    homeIsActive: true,
+                    category: labels[idx],
+                    suggestions: suggestions,
+                    events: data.events,
+                    eventCategories: labels,
+                    hasEvents: hasEvents
+                });
+            });
+        });
     });
+
 };
 
 
