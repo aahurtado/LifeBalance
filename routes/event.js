@@ -1,6 +1,8 @@
-var data = require('../data.json');
+// var data = require('../data.json');
 var moods = require('../moodEntries.json');
 var fs = require('fs');
+var dataFile = fs.readFileSync('data.json');
+var data = JSON.parse(dataFile);
 
 var fun = ["Hiking", "Swimming", "Bowling"];
 var work = ["Go to your job", "Gym", "Go to meetings"];
@@ -69,8 +71,6 @@ function updateLabelsHours(event, add) {
  * GET home page.
  */
 function calcHoursPerCategory(labels, hours) {
-    var dataFile = fs.readFileSync('data.json');
-    var data = JSON.parse(dataFile);
     var i;
     var currevent;
     for (i = 0; i < data.events.length; i++) {
@@ -156,9 +156,6 @@ function tConvert(time) {
  * GET home page.
  */
 exports.addNewEvent = function (req, res) {
-    var dataFile = fs.readFileSync('data.json');
-    var data = JSON.parse(dataFile);
-
     var name = req.body.name;
     var startTime = req.body.startTime;
     var endTime = req.body.endTime;
@@ -229,9 +226,6 @@ exports.addNewEvent = function (req, res) {
  * GET home page.
  */
 exports.editEvent = function (req, res) {
-    var dataFile = fs.readFileSync('data.json');
-    var data = JSON.parse(dataFile);
-
     var name = req.body.name;
     var startTime = req.body.startTime;
     var endTime = req.body.endTime;
@@ -304,9 +298,6 @@ exports.editEvent = function (req, res) {
  * GET home page.
  */
 exports.deleteEvent = function (req, res) {
-    var dataFile = fs.readFileSync('data.json');
-    var data = JSON.parse(dataFile);
-
     var id = req.query.id;   
 
     // updateLabelsHours(data.events[i], false);
@@ -340,9 +331,6 @@ exports.deleteEvent = function (req, res) {
  * GET home page.
  */
 exports.deleteTodaysEvent = function (req, res) {
-    var dataFile = fs.readFileSync('data.json');
-    var data = JSON.parse(dataFile);
-
     var i;
     for (i = data.events.length; i > 0; i--) {
         data.events.pop();

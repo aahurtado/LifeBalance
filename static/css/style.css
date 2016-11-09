@@ -5,3 +5,11 @@
 .ui.cards>.card {
     width: 100%;
 }
+
+.ui.fluid.card {
+    height: 325px;
+}
+
+.top.aligned {
+    height: 150px;
+}
