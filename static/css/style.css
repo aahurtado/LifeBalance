@@ -39,6 +39,10 @@ body {
     display: none
 }
 
+div.column.mood_entry {
+    padding-top: 30px;
+}
+
 @media only screen and (max-width: 700px) {
     #signedInNav {
         display: none
