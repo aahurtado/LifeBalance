@@ -350,6 +350,7 @@ exports.deleteTodaysEvent = function (req, res) {
 exports.editMoodEntry = function (req, res) {
     var id = req.body.id;
     var newMood = req.body.mood;
+    var description = req.body.description;
 
     var i;
     for (i = 0; i < moods.days.length; i++) {
@@ -360,6 +361,10 @@ exports.editMoodEntry = function (req, res) {
 
     var mood = moods.days[i];
     mood.mood = newMood;
+
+    if (description != "") {
+        mood.description = description;
+    }    
 
     if (newMood == "Happy") {
         mood.img = happyPic;
