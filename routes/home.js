@@ -95,10 +95,6 @@ exports.view = function (req, res) {
 
     var hasEvents = data.events.length == 0 ? false : true;
 
-    console.log(labels);
-    console.log(idx);
-    console.log(suggestions);
-
     res.render('home', {
         title: 'Home',
         homeIsActive: true,
