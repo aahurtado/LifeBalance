@@ -5,3 +5,7 @@
 .ui.cards>.card {
     width: 100%;
 }
+
+#today_row {
+    padding-left: 400px;
+}

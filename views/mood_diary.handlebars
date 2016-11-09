@@ -9,9 +9,9 @@
         <div class="ui horizontal divider" id="day">
             <h2 class="ui header">Today's Mood</h2>
         </div>
-        <div class="ui stackable one column grid day_grid">
-            <div class="column mood_entry" id="day5">
-                <div class="ui fluid card">
+        <div class="ui stackable center aligned grid day_grid">
+            <div class="column centered row mood_entry" id="today_row">
+                <div class="ui card">
                     <div class="image">
                         <img src="http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg">
                     </div>
@@ -33,7 +33,7 @@
         <div class="ui horizontal divider" id="week">
             <h2 class="ui header">Week's Mood</h2>
         </div>
-        <div class="ui stackable seven column grid week_grid">
+        <div class="ui stackable seven column center aligned grid week_grid">
             {{#each days}}
             <div class="column mood_entry" id="{{id}}">
                 <h3 class="ui dividing header">{{name}}</h3>
@@ -60,7 +60,7 @@
         <div class="ui horizontal divider" id="month">
             <h2 class="ui header">Month's Mood</h2>
         </div>
-        <div class="ui stackable seven column grid week_grid">
+        <div class="ui stackable seven column center aligned grid week_grid">
             {{#each days}}
             <div class="column mood_entry" id="{{id}}">
                 <h3 class="ui dividing header">{{name}}</h3>
@@ -82,7 +82,7 @@
             </div>
             {{/each}}
         </div>
-        <div class="ui stackable seven column grid week_grid">
+        <div class="ui stackable seven column center aligned grid week_grid">
             {{#each days}}
             <div class="column mood_entry" id="{{id}}">
                 <h3 class="ui dividing header">{{name}}</h3>
@@ -104,7 +104,7 @@
             </div>
             {{/each}}
         </div>
-        <div class="ui stackable seven column grid week_grid">
+        <div class="ui stackable seven column center aligned grid week_grid">
             {{#each days}}
             <div class="column mood_entry" id="{{id}}">
                 <h3 class="ui dividing header">{{name}}</h3>
@@ -126,7 +126,7 @@
             </div>
             {{/each}}
         </div>
-        <div class="ui stackable seven column grid week_grid">
+        <div class="ui stackable seven column center aligned grid week_grid">
             {{#each days}}
             <div class="column mood_entry" id="{{id}}">
                 <h3 class="ui dividing header">{{name}}</h3>
