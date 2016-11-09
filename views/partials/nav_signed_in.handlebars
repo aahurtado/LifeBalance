@@ -1,43 +1,55 @@
-<div class="ui top secondary pointing stackable menu">  
+<div class="ui top fixed secondary pointing stackable menu">
+  <div class="ui container">
 
-  {{#if homeIsActive}}
-    <a href="/home"><div class="ui active item">Life Balance</div></a>
-  {{else}}
-    <a href="/home"><div class="ui item" id="homeTab">Life Balance</div></a>
-  {{/if}}
+    {{#if homeIsActive}}
+    <a href="/home">
+      <div class="ui active item">Life Balance</div>
+    </a>
+    {{else}}
+    <a href="/home">
+      <div class="ui item" id="homeTab">Life Balance</div>
+    </a>
+    {{/if}} {{#if moodDiaryIsActive}}
+    <a href="/mood_diary">
+      <div class="ui active item">Mood Diary</div>
+    </a>
+    {{else}}
+    <a href="/mood_diary">
+      <div class="item">Mood Diary</div>
+    </a>
+    {{/if}} {{#if calendarIsActive}}
+    <a href="/calendar">
+      <div class="ui active item">Calendar</div>
+    </a>
+    {{else}}
+    <a href="/calendar">
+      <div class="ui item">Calendar</div>
+    </a>
+    {{/if}} {{#if analyticsIsActive}}
+    <a href="/analytics">
+      <div class="ui active item">Analytics</div>
+    </a>
+    {{else}}
+    <a href="/analytics">
+      <div class="item" id="activeTab">Analytics</div>
+    </a>
+    {{/if}}
 
-  {{#if moodDiaryIsActive}}
-    <a href="/mood_diary"><div class="ui active item">Mood Diary</div></a>
-  {{else}}
-    <a href="/mood_diary"><div class="item">Mood Diary</div></a>
-  {{/if}}
-  
-  {{#if calendarIsActive}}
-    <a href="/calendar"><div class="ui active item">Calendar</div></a>
-  {{else}}
-    <a href="/calendar"><div class="ui item">Calendar</div></a>
-  {{/if}}
-  
-  {{#if analyticsIsActive}}
-    <a href="/analytics"><div class="ui active item">Analytics</div></a>
-  {{else}}
-    <a href="/analytics"><div class="item" id="activeTab">Analytics</div></a>
-  {{/if}}
-  
-<div class="ui right secondary menu">
-    <div class="ui dropdown icon item">
+    <div class="ui right secondary menu">
+      <div class="ui dropdown icon item">
         <i class="ellipsis vertical icon menu_icon"></i>
         <div class="menu">
-            <a href="/settings">
-                <div class="item">Settings</div>
-            </a>
-            <a href="/help">
-                <div class="item">Help</div>
-            </a>
-            <a href="/index">
-                <div class="item">Log Out</div>
-            </a>
+          <a href="/settings">
+            <div class="item">Settings</div>
+          </a>
+          <a href="/help">
+            <div class="item">Help</div>
+          </a>
+          <a href="/index">
+            <div class="item">Log Out</div>
+          </a>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 </div>

@@ -13,3 +13,7 @@
 .top.aligned {
     height: 150px;
 }
+
+div.ui.top.fixed.secondary.pointing.stackable.menu {
+    background-color: white;
+}
