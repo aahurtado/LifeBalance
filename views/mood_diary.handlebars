@@ -11,7 +11,7 @@
         </div>
         <div class="ui stackable center aligned grid day_grid">
             <div class="column centered row mood_entry" id="today_row">
-                <div class="ui card">
+                <div class="ui centered card">
                     <div class="image">
                         <img src="http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg">
                     </div>
@@ -151,15 +151,15 @@
     </div>
 </div>
 <div class="ui small modal" id="edit_modal">
-    <div class="header">Editing Mood Entry</div>
+    <div class="header">Edit Mood Entry</div>
     <div class="content">
         <form class="ui form" id="edit_modal_form" method="post" action="/editMoodEntry">
             <div class="field">
                 <input type="hidden" id="edit_modal_form_hiddenID" name="id" value="" />
             </div>
             <div class="field">
-                <label>Description</label>
-                <textarea rows="2" name="description"></textarea>
+                <label>Description:</label>
+                <textarea rows="2" name="description" placeholder="Enter a description"></textarea>
             </div>
             <div class="field">
                 <label>Mood:</label>

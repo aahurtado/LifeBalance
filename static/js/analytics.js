@@ -4,6 +4,12 @@ $(document).ready(function () {
         .tab()
         ;
 
+    $('.paths.example .menu .item')
+        .tab({
+            context: '.paths.example'
+        })
+        ;
+
     // var waypoint = new Waypoint({
     //     element: document.getElementById('monthDonut'),
     //     handler: function(direction) {
@@ -76,10 +82,13 @@ $(document).ready(function () {
                 }
             }
         });
-        createChart(labels, hours, "monthDonut");
-        createChart(labels, hours, "weekDonut");
-        createChart(labels, hours, "dayDonut");
+        createChart(labels, [4, 12, 7], "monthDonut");
+        createChart(labels, [5, 11, 9], "weekDonut");
+        createChart(labels, [5, 5, 5], "dayDonut");
         createLineChart();
+        createMoodChart([5, 5, 5], "todayMood");
+        createMoodChart([5, 10, 7], "weekMood");
+        createMoodChart([10, 7, 5], "monthMood");
     }
 
     function createChart(labels, data, id) {
@@ -203,6 +212,32 @@ $(document).ready(function () {
             type: 'line',
             data: data
             // options: options
+        });
+    }
+
+    function createMoodChart(data, id) {
+        var ctx = document.getElementById(id);
+
+        var data = {
+            datasets: [{
+                data: data,
+                backgroundColor: [
+                    "#4BC0C0",
+                    "#FFCE56",
+                    "#36A2EB"
+                ],
+                label: 'My dataset' // for legend
+            }],
+            labels: [
+                "Tired",
+                "Happy",
+                "Sad"
+            ]
+        };
+
+        new Chart(ctx, {
+            data: data,
+            type: 'polarArea',
         });
     }
 
