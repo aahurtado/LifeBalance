@@ -17,3 +17,12 @@
 div.ui.top.fixed.secondary.pointing.stackable.menu {
     background-color: white;
 }
+
+body {
+  margin-top: 60px
+}
+@media (max-width: 767px) {
+  body {
+    margin-top: 200px
+  }
+}
