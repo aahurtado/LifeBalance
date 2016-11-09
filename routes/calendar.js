@@ -1,9 +1,12 @@
 var data = require('../data.json');
+var fs = require('fs');
 
 /*
  * GET home page.
  */
 function calcHoursPerCategory(labels, hours) {
+    var dataFile = fs.readFileSync('data.json');
+    var data = JSON.parse(dataFile);
     var i;
     var currevent;
     for (i = 0; i < data.events.length; i++) {
@@ -47,7 +50,6 @@ exports.view = function(req, res) {
  * GET home page.
  */
 exports.view2 = function(req, res) {
-
     var labels = [];
     var hours = [];
     calcHoursPerCategory(labels, hours);
