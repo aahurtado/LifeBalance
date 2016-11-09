@@ -94,7 +94,7 @@ function convertTo24Hour(time) {
 /*
  * Defines click function for when an event card is clicked
  */
-$(".raised.blue.card").click(function (e) {
+$(".raised.card").click(function (e) {
     mostRecClickedEvent = $(this);
 });
 
