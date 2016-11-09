@@ -22,9 +22,9 @@ $(document).ready(function() {
         $('#edit_modal').modal('show');
     }
 
-    $("td").click(function() {
-        open_add_modal();
-    });
+    // $("td").click(function() {
+    //     open_add_modal();
+    // });
 
     $(".add_event_button").click(function() {
         open_add_modal();
