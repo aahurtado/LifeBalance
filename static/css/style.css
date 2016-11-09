@@ -18,6 +18,10 @@ div.ui.top.fixed.secondary.pointing.stackable.menu {
     background-color: white;
 }
 
+#mobileNav {
+    background-color: white;
+}
+
 body {
   margin-top: 60px
 }
