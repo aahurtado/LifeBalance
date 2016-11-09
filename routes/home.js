@@ -1,7 +1,7 @@
-// var data = require('../data.json');
+var data = require('../data.json');
 var fs = require('fs');
 var dataFile = fs.readFileSync('data.json');
-var data = JSON.parse(dataFile);
+// var data = JSON.parse(dataFile);
 
 var fun = ["Hiking", "Swimming", "Bowling"];
 var work = ["Go to your job", "Gym", "Go to meetings"];
