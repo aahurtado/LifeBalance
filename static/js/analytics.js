@@ -241,4 +241,17 @@ $(document).ready(function () {
         });
     }
 
+    $("#analytics_help_modal_close").click(function () {
+        $('#analytics_help_modal').modal('hide');
+    });
+
+    $("#help_analytics_button").click(function () {
+        open_analytics_help_modal();
+    });
+
+    function open_analytics_help_modal() {
+        $('#analytics_help_modal').modal('show');
+    }
+
+
 });

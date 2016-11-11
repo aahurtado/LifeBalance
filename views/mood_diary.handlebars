@@ -1,10 +1,20 @@
 <h1 class="ui header">Mood Diary</h1>
 <div class="ui raised segment">
-    <div class="ui top attached tabular menu">
-        <a class="active item" data-tab="first">Day</a>
-        <a class="item" data-tab="second">Week</a>
-        <a class="item" data-tab="third">Month</a>
+    <div class="ui grid stackable">
+        <div class="eleven wide column">
+            <div class="ui top attached tabular menu">
+                <a class="active item" data-tab="first">Day</a>
+                <a class="item" data-tab="second">Week</a>
+                <a class="item" data-tab="third">Month</a>
+            </div>
+        </div>
+        <div class="right floated right aligned one wide column">
+            <div class="ui icon button" id="help_mooddiary_button">
+                <i class="help icon"></i>
+            </div>
+        </div>
     </div>
+
     <div class="ui bottom attached active tab segment" data-tab="first">
         <div class="ui horizontal divider" id="day">
             <h2 class="ui header">Today's Mood</h2>
@@ -181,4 +191,30 @@
         </button>
     </div>
 </div>
+
+
+<div class="ui small modal" id="mooddiary_help_modal">
+    <div class="header">
+        Help
+    </div>
+    <div class="content">
+        <h2>What is the "Mood Diary"?</h2>
+        <p>The "Mood Diary" is exactly what the name suggests it is. It is a way for you to take note of how you felt on a specific day. For example, if one's overall mood was happy for the current day, they would add an entry into their "Mood Diary" with that feeling. The intention for the "Mood Diary" is to allow you to gage how you have been feeling and correlate it with a LifeBalance. This will allow you to understand what unique balance is right for you and will give you the most satisfaction.</p>
+        <h2>What can you do here?</h2>
+        <p>Here you can:</p>
+        <ul class="helplist">
+            <li class="listelm">Add an entry by editing the mood entry of the current day through the button with the little pencil</li>
+            <li class="listelm">Change a previous entry if you feel like you you have a more accurate feeling for that day by clicking the button with the little pencil</li>
+            <li class="listelm">View your "Mood Diary" entry for the day by selecting the day tab, or more entries by selecting the week or month view through their respectful tabs</li>
+            <li class="listelm">Have a self evaluation by looking at how you've been feeling over the week or month</li>
+        </ul>
+    </div>
+    <div class="actions">
+        <div class="ui basic positive icon button" id="mooddiary_help_modal_close">
+            <i class="checkmark icon"></i> Got it!
+        </div>
+    </div>
+</div>
+
+
 <script src="/js/mood_diary.js"></script>

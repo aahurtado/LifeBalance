@@ -270,4 +270,29 @@ $(document).ready(function () {
         });
     }
 
+    $("#schedule_help_modal_close").click(function () {
+        $('#schedule_help_modal').modal('hide');
+    });
+
+    $("#help_sched_button").click(function () {
+        open_schedule_help_modal();
+    });
+
+    function open_schedule_help_modal() {
+        $('#schedule_help_modal').modal('show');
+    }
+
+    $("#todaysbalance_help_modal_close").click(function () {
+        $('#schedule_help_modal').modal('hide');
+    });
+
+    $("#help_todays_balance_button").click(function () {
+        open_todaysbalance_help_modal();
+    });
+
+    function open_todaysbalance_help_modal() {
+        $('#todaysbalance_help_modal').modal('show');
+    }
+
+
 });

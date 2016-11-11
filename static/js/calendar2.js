@@ -98,4 +98,17 @@ $(document).ready(function() {
         $('#edit_modal_form').form('clear');
     });
 
+    $("#calendar_help_modal_close").click(function () {
+        $('#calendar_help_modal').modal('hide');
+    });
+
+    $("#help_calendar_button").click(function () {
+        open_calendar_help_modal();
+    });
+
+    function open_calendar_help_modal() {
+        $('#calendar_help_modal').modal('show');
+    }
+
+
 });

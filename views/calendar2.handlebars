@@ -1,12 +1,15 @@
-<h1 class="ui header">Calendar</h1>
+<!--<h1 class="ui header">Calendar</h1>-->
 <div class="ui raised segment">
     <div class="ui grid stackable">
-        <div class="fourteen wide column">
+        <div class="thirteen wide column">
             <h2 class="ui header">November 2016</h2>
         </div>
-        <div class="right floated left aligned two wide column">
+        <div class="right floated right aligned three wide column">
             <div class="ui icon buttons">
                 <button class="ui primary button add_event_button"><i class="icon add"></i>Add Event</button>
+            </div>
+            <div class="ui icon button" id="help_calendar_button">
+            <i class="help cirle icon"></i>
             </div>
         </div>
     </div>
@@ -378,4 +381,28 @@
         </div>
     </div>
 </div>
+
+<div class="ui small modal" id="calendar_help_modal">
+    <div class="header">
+        Help
+    </div>
+    <div class="content">
+        <h2>What is the calendar for?</h2>
+        <p>The calendar gives you a month view of the events you have done or will do. The events will be color coordinated by the type of the event, which is specified when you add an event. With this calendar, you can have an overall representation of what your type of events your month consisted of. Similar to the LifeBalance chart on the home page, this will help you with future decisions.</p>
+        <h2>What can you do here?</h2>
+        <p>Here you can:</p>
+        <ul class="helplist">
+            <li class="listelm">Add an event entry to your month by clicking the add event button and filling out the event form</li>
+            <li class="listelm">Edit an individual event's information by clicking on the event</li>
+            <li class="listelm">Look over what kind of events are taking up your month and take action if you have not been feeling satisfied with your balances according to this information</li>
+        </ul>
+    </div>
+    <div class="actions">
+        <div class="ui basic positive icon button" id="calendar_help_modal_close">
+            <i class="checkmark icon"></i> Got it!
+        </div>
+    </div>
+</div>
+
+
 <script src="/js/calendar2.js"></script>

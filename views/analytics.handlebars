@@ -5,12 +5,22 @@
         <a class="item" data-tab="second">Mood</a>
     </div>
     <div class="ui tab segment active" data-tab="first">
-        <div class="ui top attached tabular menu">
-            <a class="active item" data-tab="first/a">Day</a>
-            <a class="item" data-tab="first/b">Week</a>
-            <a class="item" data-tab="first/c">Month</a>
-            <a class="item" data-tab="first/d">Hours Per Category</a>
+        <div class="ui grid stackable">
+            <div class="thirteen wide column">
+                <div class="ui top attached tabular menu">
+                    <a class="active item" data-tab="first/a">Day</a>
+                    <a class="item" data-tab="first/b">Week</a>
+                    <a class="item" data-tab="first/c">Month</a>
+                    <a class="item" data-tab="first/d">Hours Per Category</a>
+                </div>
+            </div>
+            <div class="right floated right aligned three wide column">
+                <div class="ui icon button" id="help_analytics_button">
+                    <i class="help icon"></i>
+                </div>
+            </div>
         </div>
+
         <div class="ui bottom attached active tab segment" data-tab="first/a">
             <div class="ui horizontal divider" id="day">
                 <h2 class="ui header">Day's Balance</h2>
@@ -61,5 +71,30 @@
             <canvas id="monthMood" width="200" height="125"></canvas>
         </div>
     </div>
+
+
+<div class="ui small modal" id="analytics_help_modal">
+    <div class="header">
+        Help
+    </div>
+    <div class="content">
+        <h2>What is analytics for?</h2>
+        <p>Analytics will provide you LifeBalance visual representations beyond the current day LifeBalance you have seen on your home page. Through this analytics tool, you can see your over LifeBalance over a week or a month, as well as the current day LifeBalance. In addition, you will have access to a graph that will help you better understand how the hours you spent in each event type fluctuates over several months.</p>
+        <h2>What can you do here?</h2>
+        <p>Here you can:</p>
+        <ul class="helplist">
+            <li class="listelm">Look at your LifeBalance for the month by selecting the "Month" tab</li>
+            <li class="listelm">Look at your LifeBalance for the week by selecting the "Week" tab</li>
+            <li class="listelm">Look at your LifeBalance for the current day by selecting the "Day" tab</li>
+            <li class="listelm">See how the amount of hours you spent in each event type has changed over the last couple months with a line chart graphing each category by selecting the "Hours Per Catergory" tab</li>
+        </ul>
+    </div>
+    <div class="actions">
+        <div class="ui basic positive icon button" id="analytics_help_modal_close">
+            <i class="checkmark icon"></i> Got it!
+        </div>
+    </div>
+</div>
+
     <script src="/js/analytics.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>

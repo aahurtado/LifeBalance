@@ -1,6 +1,16 @@
 <h1 class="ui header">Home</h1>
 <div class="ui raised segment">
-    <h2 class="ui dividing header">Today's Balance:</h2>
+    <div class="ui grid stackable">
+        <div class="eleven wide column">
+            <h2 class="ui dividing header">Today's Balance:</h2>
+        </div>
+        <div class="right floated right aligned five wide column">
+            <div class="ui icon button" id="help_todays_balance_button">
+                <i class="help icon"></i>
+            </div>
+        </div>
+    </div>
+
     <div class="ui stackable two column grid">
         <div class="column">
             <canvas id="myChart" width="400" height="400"></canvas>
@@ -24,12 +34,15 @@
 </div>
 <div class="ui raised segment">
     <div class="ui grid stackable">
-        <div class="eleven wide column">
+        <div class="ten wide column">
             <h2>Today's Schedule:</h2>
         </div>
-        <div class="right floated left aligned five wide column">
+        <div class="right floated right aligned six wide column">
             <button class="ui negative inverted button clear_event_button"><i class="icon delete calendar"></i>Clear Schedule</button>
             <button class="ui primary button add_event_button"><i class="icon add"></i>Add Event</button>
+            <div class="ui icon button" id="help_sched_button">
+                <i class="help icon"></i>
+            </div>
         </div>
     </div>
     <div class="ui divider"></div>
@@ -235,5 +248,51 @@
         </div>
     </div>
 </div>
+
+        <div class="ui small modal" id="todaysbalance_help_modal">
+            <div class="header">
+                Help
+            </div>
+            <div class="content">
+                <h2>What is "Today's balance"?</h2>
+                <p>This is where your LifeBalance of the day is shown. Your LifeBalance is a pie chart which reflects the events in your schedule. Through your LifeBalance, you can choose what events you may or may not want to do in your day. For example, one who sees they have been working a majority of their day may choose to schedule in some personal time. The data reflected in your chart is taken by the amount of hours you spent in your events overall. Hope you enjoy finding your perfect balance!</p>
+                <h2>What can you do here?</h2>
+                <p>Here you can:</p>
+                <ul class="helplist">
+                    <li class="listelm">Look at how much time (hours) you spent on a particular type of event by hovering over that type on the LifeBalance chart</li>
+                    <li class="listelm">View the suggestions on actions to take based off of the data you provided</li>
+                    <li class="listelm">Decide on what you want to do with the time that you have based on this data</li>
+                </ul>
+            </div>
+            <div class="actions">
+                <div class="ui basic positive icon button" id="todaysbalance_help_modal_close">
+                    <i class="checkmark icon"></i> Got it!
+                </div>
+            </div>
+        </div>
+
+<div class="ui small modal" id="schedule_help_modal">
+    <div class="header">
+        Help
+    </div>
+    <div class="content">
+        <h2>What is this schedule tool?</h2>
+        <p>This is your current schedule. You can add events from your day into this tool to help keep track of your schedule. In addition, by doing so you will also be gathering information regarding your day to create your LifeBalance chart.</p>
+        <h2>What can you do here?</h2>
+        <p>Here you can:</p>
+        <ul class="helplist">
+            <li class="listelm">Add an event to your current schedule of the day by clicking "Add Event"</li>
+            <li class="listelm">Remove all the events in your current schedule by selecting "Clear Schedule"</li>
+            <li class="listelm">Make changes to the information for an individual event (e.g. time of the event, event type, etc.) by selecting "Edit"</li>
+            <li class="listelm">Remove an individual event from your schedule by selecting "Delete"</li>
+        </ul>
+    </div>
+    <div class="actions">
+        <div class="ui basic positive icon button" id="schedule_help_modal_close">
+            <i class="checkmark icon"></i> Got it!
+        </div>
+    </div>
+</div>
+
 <script src="/js/home.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>

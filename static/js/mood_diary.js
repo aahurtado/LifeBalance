@@ -35,4 +35,18 @@ $(document).ready(function () {
         $('#edit_modal').modal('show');
     }
 
+    $("#mooddiary_help_modal_close").click(function () {
+        $('#mooddiary_help_modal').modal('hide');
+    });
+
+    $("#help_mooddiary_button").click(function () {
+        open_mooddiary_help_modal();
+    });
+
+    function open_mooddiary_help_modal() {
+        $('#mooddiary_help_modal').modal('show');
+    }
+
+
+
 });
