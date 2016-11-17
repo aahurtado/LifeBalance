@@ -143,7 +143,7 @@ $(document).ready(function () {
 
         var editEventForm = $("#edit_modal_form");
 
-        var event = $(this).parents(".raised.blue.card")[0];
+        var event = $(this).parents(".raised.card")[0];
 
         var fields = $(event)["0"].innerText;
 
