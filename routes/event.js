@@ -12,6 +12,8 @@ var happyPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg";
 var sadPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f62d.svg";
 var tiredPic = "http://emojione.com/wp-content/uploads/assets/emojis/1f634.svg";
 
+var moodCategories = ["Happy", "Tired", "Sad"];
+
 // Used to construct the next event ID
 var curIDNum = data.events.length + 1;
 var ID = "event";
@@ -353,6 +355,7 @@ exports.editMoodEntry = function (req, res) {
     var id = req.body.id;
     var newMood = req.body.mood;
     var description = req.body.description;
+    var userNewMood = req.body.newMood;
 
     var i;
     for (i = 0; i < moods.days.length; i++) {
@@ -362,16 +365,22 @@ exports.editMoodEntry = function (req, res) {
     }
 
     var mood = moods.days[i];
-    mood.mood = newMood;
+    mood.mood = userNewMood == "" ? newMood : userNewMood;
+
+    if (userNewMood != "") {
+        moodCategories.push(userNewMood);
+    }
 
     if (description != "") {
         mood.description = description;
     }    
 
-    if (newMood == "Happy") {
+    if (mood.mood == "Happy") {
         mood.img = happyPic;
-    } else if (newMood == "Sad") {
+    } else if (mood.mood == "Sad") {
         mood.img = sadPic;
+    } else if (mood.mood == "Tired") {
+        mood.img = tiredPic;
     } else {
         mood.img = tiredPic;
     }
@@ -379,6 +388,7 @@ exports.editMoodEntry = function (req, res) {
     res.render('mood_diary', {
         title: 'Mood Diary',
         moodDiaryIsActive: true,
-        days: moods.days
+        days: moods.days,
+        moodCategories: moodCategories
     });
 };

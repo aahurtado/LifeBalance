@@ -171,14 +171,24 @@
                 <label>Description:</label>
                 <textarea rows="2" name="description" placeholder="Enter a description"></textarea>
             </div>
-            <div class="field">
-                <label>Mood:</label>
-                <select class="ui fluid search selection dropdown" name="mood">
+            <div class="ui grid">
+                <div class="eight wide column">
+                    <div class="field">
+                        <label>Mood:</label>
+                        <select class="ui fluid search selection dropdown" name="mood">
                     <option value="">Choose a mood</option>
-                    <option value="Happy">Happy</option>
-                    <option value="Sad">Sad</option>
-                    <option value="Tired">Tired</option>
+                    {{#each moodCategories}}
+                        <option value="{{this}}">{{this}}</option>
+                    {{/each}}
                 </select>
+                    </div>
+                </div>
+                <div class="eight wide column">
+                    <div class="field">
+                        <label>Or enter a new mood:</label>
+                        <input type="text" name="newMood" placeholder="Enter mood">
+                    </div>
+                </div>
             </div>
         </form>
     </div>
@@ -199,13 +209,19 @@
     </div>
     <div class="content">
         <h2>What is the "Mood Diary"?</h2>
-        <p>The "Mood Diary" is exactly what the name suggests it is. It is a way for you to take note of how you felt on a specific day. For example, if one's overall mood was happy for the current day, they would add an entry into their "Mood Diary" with that feeling. The intention for the "Mood Diary" is to allow you to gage how you have been feeling and correlate it with a LifeBalance. This will allow you to understand what unique balance is right for you and will give you the most satisfaction.</p>
+        <p>The "Mood Diary" is exactly what the name suggests it is. It is a way for you to take note of how you felt on a specific
+            day. For example, if one's overall mood was happy for the current day, they would add an entry into their "Mood
+            Diary" with that feeling. The intention for the "Mood Diary" is to allow you to gage how you have been feeling
+            and correlate it with a LifeBalance. This will allow you to understand what unique balance is right for you and
+            will give you the most satisfaction.</p>
         <h2>What can you do here?</h2>
         <p>Here you can:</p>
         <ul class="helplist">
             <li class="listelm">Add an entry by editing the mood entry of the current day through the button with the little pencil</li>
-            <li class="listelm">Change a previous entry if you feel like you you have a more accurate feeling for that day by clicking the button with the little pencil</li>
-            <li class="listelm">View your "Mood Diary" entry for the day by selecting the day tab, or more entries by selecting the week or month view through their respectful tabs</li>
+            <li class="listelm">Change a previous entry if you feel like you you have a more accurate feeling for that day by clicking the button
+                with the little pencil</li>
+            <li class="listelm">View your "Mood Diary" entry for the day by selecting the day tab, or more entries by selecting the week or month
+                view through their respectful tabs</li>
             <li class="listelm">Have a self evaluation by looking at how you've been feeling over the week or month</li>
         </ul>
     </div>
