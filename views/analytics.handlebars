@@ -11,7 +11,8 @@
                     <a class="active item" data-tab="first/a">Day</a>
                     <a class="item" data-tab="first/b">Week</a>
                     <a class="item" data-tab="first/c">Month</a>
-                    <a class="item" data-tab="first/d">Hours Per Category</a>
+                    <a class="item" data-tab="first/d">Hours Per Category - Line Chart</a>
+                    <a class="item" data-tab="first/e">Hours Per Category - Bar Chart</a>
                 </div>
             </div>
             <div class="right floated right aligned three wide column">
@@ -40,6 +41,12 @@
             <canvas id="monthDonut" width="200" height="125"></canvas>
         </div>
         <div class="ui bottom attached tab segment" data-tab="first/d">
+            <div class="ui horizontal divider" id="events">
+                <h2 class="ui header">Hours Per Category</h2>
+            </div>
+            <canvas id="eventsLine" width="200" height="125"></canvas>
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="first/e">
             <div class="ui horizontal divider" id="events">
                 <h2 class="ui header">Hours Per Category</h2>
             </div>
