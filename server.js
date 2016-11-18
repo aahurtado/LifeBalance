@@ -72,7 +72,7 @@ app.get('/deleteTodaysEvent', event.deleteTodaysEvent);
 
 app.post('/editMoodEntry', event.editMoodEntry);
 
-app.get('/getEvents', home.eventsJSON);
+app.get('/getEvents', event.eventsJSON);
 
 /*app.all('*', function(req, res) {
     res.redirect('/404.html');

@@ -392,3 +392,11 @@ exports.editMoodEntry = function (req, res) {
         moodCategories: moodCategories
     });
 };
+
+
+/*
+ * GET home page.
+ */
+exports.eventsJSON = function (req, res) {
+    res.json(data.events);
+};

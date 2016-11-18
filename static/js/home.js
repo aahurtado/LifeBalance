@@ -189,6 +189,7 @@ $(document).ready(function () {
     $("#delete_today_modal_yes").click(function () {
         var URL = "/deleteTodaysEvent?";
         window.location.href = URL;
+        updateGraph();
     });
 
     $(".delete_event_button").click(function () {
