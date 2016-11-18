@@ -12,6 +12,7 @@ var index = require('./routes/index');
 var sign_in = require('./routes/sign_in');
 var sign_up = require('./routes/sign_up');
 var home = require('./routes/home');
+var home2 = require('./routes/home2');
 var moodDiary = require('./routes/mood_diary');
 var calendar = require('./routes/calendar');
 var analytics = require('./routes/analytics');
@@ -47,6 +48,8 @@ app.get('/sign_in', sign_in.view);
 app.get('/sign_up', sign_up.view);
 
 app.get('/home', home.view);
+
+app.get('/home2', home2.view);
 
 app.post('/home', home.view);
 
