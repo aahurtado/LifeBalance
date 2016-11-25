@@ -228,17 +228,17 @@ exports.addNewEvent = function (req, res) {
  * GET home page.
  */
 exports.editEvent = function (req, res) {
-    var name = req.body.name;
-    var startTime = req.body.startTime;
-    var endTime = req.body.endTime;
+    var name = req.query.name;
+    var startTime = req.query.startTime;
+    var endTime = req.query.endTime;
     var startTime12hr = tConvert(startTime);
     var endTime12hr = tConvert(endTime);
-    var startDate = req.body.startDate;
-    var endDate = req.body.endDate;
-    var details = req.body.details;
-    var category = req.body.category;
-    var newCategory = req.body.newCategory;
-    var id = req.body.id;
+    var startDate = req.query.startDate;
+    var endDate = req.query.endDate;
+    var details = req.query.details;
+    var category = req.query.category;
+    var newCategory = req.query.newCategory;
+    var id = req.query.id;
     var hasEndTime;
 
     if (endTime != "") {

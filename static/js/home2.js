@@ -1,5 +1,7 @@
 // Represents the most recently clicked event card
 var mostRecClickedEvent;
+var start;
+var elapsed;
 
 /*
  * Defines click function for when an event card is clicked
@@ -71,6 +73,8 @@ $("#add_modal_cancel").click(function (e) {
  * Defines click function for when an event card is clicked
  */
 $("#edit_modal_cancel").click(function (e) {
+    elapsed = new Date().getTime() - start;
+    alert("Time Elapsed Since Opening Edit Module in Milliseconds: " + elapsed,5000);
     $('#edit_modal_form').form('clear');
 });
 
@@ -108,6 +112,8 @@ $(document).ready(function () {
      * in the delete modal
      */
     $("#edit_modal_save").click(function (e) {
+        elapsed = new Date().getTime() - start;
+        alert("Time Elapsed Since Opening Edit Module in Milliseconds: " + elapsed,5000);
         document.getElementById('edit_modal_form_hiddenID').value = mostRecClickedEvent[0].id;
         updateGraph();
     });
@@ -135,6 +141,7 @@ $(document).ready(function () {
 
     function open_edit_modal() {
         $('#edit_modal').modal('show');
+        start = new Date().getTime();
     }
 
     $(".edit_event_button").click(function () {

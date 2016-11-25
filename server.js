@@ -67,7 +67,7 @@ app.get('/help', help.view);
 
 app.post('/addEvent', event.addNewEvent);
 
-app.post('/editEvent', event.editEvent);
+app.get('/editEvent', event.editEvent);
 
 app.get('/deleteEvent', event.deleteEvent);
 
