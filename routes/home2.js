@@ -97,7 +97,7 @@ exports.view = function (req, res) {
 
     res.render('home2', {
         title: 'Home',
-        homeIsActive: true,
+        //homeIsActive: true,
         category: labels[idx],
         suggestions: suggestions,
         events: data.events,
