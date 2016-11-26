@@ -253,5 +253,16 @@ $(document).ready(function () {
         $('#analytics_help_modal').modal('show');
     }
 
+    $("#analytics_help_mood_modal_close").click(function () {
+        $('#analytics_help_mood_modal').modal('hide');
+    });
+
+    $("#help_analytics_mood_button").click(function () {
+        open_analytics_help_mood_modal();
+    });
+
+    function open_analytics_help_mood_modal() {
+        $('#analytics_help_mood_modal').modal('show');
+    }
 
 });
