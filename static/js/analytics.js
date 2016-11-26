@@ -86,6 +86,7 @@ $(document).ready(function () {
         createChart(labels, [5, 11, 9], "weekDonut");
         createChart(labels, [5, 5, 5], "dayDonut");
         createLineChart();
+        createBarChart();
         createMoodChart([5, 5, 5], "todayMood");
         createMoodChart([5, 10, 7], "weekMood");
         createMoodChart([10, 7, 5], "monthMood");
@@ -121,6 +122,97 @@ $(document).ready(function () {
             type: 'doughnut',
             data: data,
             options: options
+        });
+    }
+
+    function createBarChart() {
+        var ctx = document.getElementById("eventsbar");
+
+        var data = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [
+                {
+                    label: "Work",
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 99, 132, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(255,99,132,1)',
+                        'rgba(255,99,132,1)',
+                        'rgba(255,99,132,1)',
+                        'rgba(255,99,132,1)',
+                        'rgba(255,99,132,1)',
+                        'rgba(255,99,132,1)'
+                    ],
+                    data: [65, 59, 80, 81, 56, 55, 40]
+                },
+                {
+                    label: "Sleep",
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(54, 162, 235, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    data: [50, 30, 90, 71, 66, 50, 42]
+                },
+                {
+                    label: "Fun",
+                    backgroundColor: [
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    data: [30, 40, 18, 56, 49, 32, 50]
+                }
+            ]
+        };
+
+        var myBarChart = new Chart(ctx, {
+            type: "bar",
+            data: data,
+            options: {
+                scales: {
+                    xAxes: [{
+                        stacked: true
+                    }],
+                    yAxes: [{
+                        stacked: true
+                    }]
+                }
+            }
         });
     }
 
