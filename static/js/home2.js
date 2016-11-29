@@ -72,13 +72,13 @@ $("#add_modal_cancel").click(function (e) {
 /*
  * Defines click function for when an event card is clicked
  */
-$("#edit_modal_cancel").click(function (e) {
+/*$("#edit_modal_cancel").click(function (e) {
     elapsed = new Date().getTime() - start;
     alert("Time Elapsed Since Opening Edit Module in Milliseconds: " + elapsed,5000);
     ga('send', 'timing', 'Edit Module2', 'Edit Canceled2', elapsed);
     $('#edit_modal_form').form('clear');
 });
-
+*/
 
 /*
  * Defines click function for when an event card is clicked
@@ -112,13 +112,13 @@ $(document).ready(function () {
      * Defines click function for when the "Yes" button is clicked
      * in the delete modal
      */
-    $("#edit_modal_save").click(function (e) {
+   /* $("#edit_modal_save").click(function (e) {
         elapsed = new Date().getTime() - start;
         alert("Time Elapsed Since Opening Edit Module in Milliseconds: " + elapsed,5000);
         document.getElementById('edit_modal_form_hiddenID').value = mostRecClickedEvent[0].id;
         updateGraph();
         ga('send', 'timing', 'Edit Module2', 'Edit Saved2', elapsed);
-    });
+    });*/
 
     /*
      * Defines click function for when an event card is clicked
