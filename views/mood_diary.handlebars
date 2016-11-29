@@ -23,11 +23,11 @@
             <div class="column centered row mood_entry" id="today_row">
                 <div class="ui centered fluid card">
                     <div class="image">
-                        <img class="ui image" src="http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg">
+                        <img class="ui image" src="{{todaysMood.img}}">
                     </div>
                     <div class="content middle aligned">
-                        <h3 class="ui header">Happy</h3>
-                        <div class="description">"Spent the day at the beach!"</div>
+                        <h3 class="ui header">{{todaysMood.mood}}</h3>
+                        <div class="description">{{todaysMood.description}}</div>
                     </div>
                     <div class="extra content">
                         <button class="ui fluid positive basic button edit_mood_entry_button">

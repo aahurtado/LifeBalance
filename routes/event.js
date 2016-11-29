@@ -18,6 +18,14 @@ var moodCategories = ["Happy", "Tired", "Sad"];
 var curIDNum = data.events.length + 1;
 var ID = "event";
 
+var todaysMood = {
+    "name": "Sunday",
+    "img": "http://emojione.com/wp-content/uploads/assets/emojis/1f604.svg",
+    "mood": "Happy",
+    "description": "Spent the day at the beach!!",
+    "id": "day0"
+}
+
 /*
  * Takes an ID of an event and removes that event from the passed in array
  */
@@ -300,7 +308,7 @@ exports.editEvent = function (req, res) {
  * GET home page.
  */
 exports.deleteEvent = function (req, res) {
-    var id = req.query.id;   
+    var id = req.query.id;
 
     // updateLabelsHours(data.events[i], false);
 
@@ -311,7 +319,7 @@ exports.deleteEvent = function (req, res) {
     var labels = [];
     var hours = [];
 
-     calcHoursPerCategory(labels, hours);
+    calcHoursPerCategory(labels, hours);
     var suggestions = calcSuggestCategory(labels, hours);
     var idx = indexOfLeastCategory(hours);
 
@@ -357,6 +365,17 @@ exports.editMoodEntry = function (req, res) {
     var description = req.body.description;
     var userNewMood = req.body.newMood;
 
+    if (!id.startsWith("id")) {
+        res.render('mood_diary', {
+            title: 'Mood Diary',
+            moodDiaryIsActive: true,
+            days: moods.days,
+            moodCategories: moodCategories,
+            todaysMood: todaysMood
+        });
+        return;
+    }
+
     var i;
     for (i = 0; i < moods.days.length; i++) {
         if (moods.days[i].id == id) {
@@ -373,7 +392,7 @@ exports.editMoodEntry = function (req, res) {
 
     if (description != "") {
         mood.description = description;
-    }    
+    }
 
     if (mood.mood == "Happy") {
         mood.img = happyPic;
@@ -389,7 +408,8 @@ exports.editMoodEntry = function (req, res) {
         title: 'Mood Diary',
         moodDiaryIsActive: true,
         days: moods.days,
-        moodCategories: moodCategories
+        moodCategories: moodCategories,
+        todaysMood: todaysMood
     });
 };
 
